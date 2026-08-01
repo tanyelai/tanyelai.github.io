@@ -5,8 +5,9 @@ step: edit the file, push, done.
 
 ```
 index.html            home — profile, research, selected work, positions, notes
+cv.html               the full record: education, positions, awards, teaching
 publications.html     complete publication list + Scholar figures
-notes/                short pieces
+notes/                short pieces, each in English and Turkish
 assets/style.css      the whole design system
 assets/site.js        theme toggle, and figures that wait to be seen
 assets/favicon.svg
@@ -23,39 +24,56 @@ stays clean. Type is [Newsreader](https://fonts.google.com/specimen/Newsreader)
 across optical sizes with [DM Mono](https://fonts.google.com/specimen/DM+Mono)
 for the apparatus.
 
-The masthead trace is an ECG with one beat marked. Hover it, or tab to it, and
-inside the mark the beat becomes the counterfactual: ST elevation off the J
-point and a taller T, the change that would flip the decision. Nothing outside
-the mark moves, which is the whole claim a counterfactual makes. It plays once
-on load so the interaction announces itself.
+The masthead is an ECG with one beat marked. The page draws the recording, lights
+the mark, and settles on the counterfactual: ST elevation off the J point and a
+fuller T, the change that would flip the decision. The switch under the mark puts
+the original recording back. The counterfactual is clipped to the mark, so nothing
+outside it can move, which is the whole claim the method makes.
 
-Beside the third research theme is the same gesture one dimension up: a
-mammogram field in patches, one patch marked. A band picks out an interval of a
-recording; a patch picks out a region of an image.
+The switch is a hidden checkbox with a styled label, not a scripted button, so it
+works with no JavaScript, on touch, and from the keyboard. The question beside it
+(*what would have had to be different?*) is there so a reader who has never met
+the word can still tell what they are looking at.
+
+Each research theme carries a marginal figure doing the same thing one context
+over: the shortest path across a decision boundary, the hub in a connectivity
+graph, the marked region in a mediolateral oblique mammogram. They draw when
+scrolled into view.
 
 The violet appears in those marks, in the tags, and on links under the cursor,
 and nowhere else. It is the colour of the highlight bands in the ECG papers.
 
-Light and dark follow the system unless the toggle in the nav says otherwise,
-in which case the choice is kept in `localStorage`. A tiny inline script in each
-`<head>` applies it before first paint so the page never flashes the wrong
-theme.
+Two toggles sit at the end of the nav. **Light is the default** — dark is a
+choice, not a system default. **English is the default**; the notes carry their
+Turkish originals alongside the translations and `TR` swaps them. Both choices
+are kept in `localStorage` and applied by an inline script in each `<head>`
+before first paint, so the page never flashes the wrong one.
 
 ## Editing
 
-**A new note.** Copy any file in `notes/`, change the title, date and body, then
-add it to the list in `notes/index.html` and to the Notes section of
-`index.html`.
+**A new note.** Copy any file in `notes/` and replace the title, date and body.
+Every piece of text that differs by language lives in a pair of elements marked
+`data-lang="en"` and `data-lang="tr"`; keep both halves or the toggle will show a
+gap. Then add it to `notes/index.html` and to the Notes section of `index.html`,
+in both languages there too.
+
+Careful with that attribute: the toggle sets `data-lang` on `<html>`, so the CSS
+rules that hide the inactive language are descendant selectors. A bare
+`[data-lang="tr"] { display: none }` matches the root element and blanks the
+whole page.
 
 **A new paper.** Add an `<li class="pub">` to `publications.html`, and to
 `index.html` if it belongs in the selected eight. Link `doi`, `arxiv` and `code`
 where they exist; drop the ones that don't rather than pointing at a search
 page. Work with no public link stays unlinked — the venue line carries it.
 
+**A new position or award.** `cv.html` holds the full record; `index.html` shows
+a compact grouped list and links to it. Keep the compact list to one line an
+entry — the detail belongs on the CV page.
+
 **Colour or type.** Everything is a custom property at the top of
-`assets/style.css`: `:root` for light, a `prefers-color-scheme` block for the
-system default, and `[data-theme]` blocks for an explicit choice. Change a value
-once and both figures, the tags and the links follow.
+`assets/style.css`: `:root` for light, `:root[data-theme="dark"]` for dark.
+Change a value once and every figure, tag and link follows.
 
 **The ECG paths.** They are generated, not drawn: a sum of Gaussians for P, Q,
 R, S and T, with the counterfactual adding a smooth plateau off the J point and

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notes to myself — 1 · Toygar Tanyel</title>
+<title>Notes to myself &mdash; 1 · Toygar Tanyel</title>
 <meta name="description" content="Is a perfect intelligence a need, or a way of easing our own loneliness?">
 <link rel="canonical" href="https://tanyelai.github.io/notes/notes-to-myself-1.html">
-<meta property="og:title" content="Notes to myself — 1 · Toygar Tanyel">
+<meta property="og:title" content="Notes to myself &mdash; 1 · Toygar Tanyel">
 <meta property="og:description" content="Is a perfect intelligence a need, or a way of easing our own loneliness?">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://tanyelai.github.io/assets/og.png">
@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,300..500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
-<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
 
@@ -26,23 +26,32 @@
     <nav class="nav" style="margin-top:0" aria-label="Breadcrumb">
       <a href="/">&larr; toygar tanyel</a>
       <a href="/notes/">notes</a>
-          <button class="theme-toggle" type="button" aria-label="Switch to the dark theme">
-        <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
-        </svg>
-        <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.1"></circle>
-          <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
-        </svg>
-      </button>
+      <span class="nav-tools">
+        <button class="toggle lang-toggle" type="button" aria-label="Yazıları Türkçe oku">
+          <span class="to-tr">TR</span><span class="to-en">EN</span>
+        </button>
+        <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
+          <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
+          </svg>
+          <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.1"></circle>
+            <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
+          </svg>
+        </button>
+      </span>
     </nav>
 
-    <p class="note-date" style="margin-top:2.5rem">3 January 2026</p>
-    <h1 class="article-title">Notes to myself &mdash; 1</h1>
+    <p class="note-date" style="margin-top:2.5rem">
+      <span data-lang="en">3 January 2026</span><span data-lang="tr">3 Ocak 2026</span>
+    </p>
+    <h1 class="article-title">
+      <span data-lang="en">Notes to myself &mdash; 1</span><span data-lang="tr">Kendime düşünceler &mdash; 1</span>
+    </h1>
 
-    <div class="article-body">
+    <div class="article-body" data-lang="en" lang="en">
       <p>While debating where language models fall short, might we be missing the real
       intention? Is AGI a necessity, or humanity's desire to create its own likeness and
       ease its loneliness in its own way?</p>
@@ -83,7 +92,44 @@
       meaning inside the comfort of its own creation?</p>
     </div>
 
-    <p class="footnote">Written in Turkish. Translated for this page.</p>
+    <div class="article-body" data-lang="tr" lang="tr">
+      <p>LLM'lerin tıkandığı noktaları tartışırken asıl niyeti gözden kaçırıyor olabilir
+      miyiz; AGI bir ihtiyaç mı, yoksa insanın kendi suretini yaratıp, kendince yalnızlığını
+      giderme arzusu mu?</p>
+
+      <p>Kusursuz bir zeka yarattığımızda, kendi kusurlarımızla yüzleşmeye cesaretimiz olacak
+      mı, yoksa o mükemmelliğin gölgesinde silikleşmeyi mi tercih edeceğiz?</p>
+
+      <p>Hayatı idame ettirmek için gereken eylemleri makinelere devrettiğimizde, geriye kalan
+      o büyük &ldquo;boş zaman&rdquo; bizi özgürleştirecek mi, yoksa anlam krizinin ortasına mı
+      bırakacak?</p>
+
+      <p>Korkumuzun kökeninde, biyolojik mirasımızın bu dijital hıza yetişememesi mi var,
+      yoksa kontrolün artık bizde olmayabileceğini içten içe kabul etmiş olmamız mı?</p>
+
+      <p>Düşünceyi bir algoritmaya ihale ettiğimizde zihnimiz köreliyor mu, yoksa insan zekası
+      artık işlemci değil de sadece bir &ldquo;istemci&rdquo; olmaya mı evriliyor?</p>
+
+      <p>&ldquo;Kullananlar aptallaşıyor&rdquo; diyenler, zekanın tanımının değiştiğini kabullenemeyen
+      eski dünyanın bekçileri olabilir mi? Yoksa bilim, bilmekten çıkıp, bilmediğimiz bir
+      şeye teslim olmaya mı dönüştü?</p>
+
+      <p>Bu hız trenine bindiğimizi sanarken, aslında rayları döşeyen de, treni süren de,
+      yolcusu olan da artık biz değil miyiz? Gelecek nesiller için duyduğumuz kaygı, onların
+      yaşayacağı dünyayı hayal bile edemiyor oluşumuzun çaresizliği mi?</p>
+
+      <p>Sevinmek ya da korkmak kadar basit mi tepkilerimiz, yoksa hissettiğimiz şey
+      &ldquo;tanıdık olanın ölümü&rdquo;nün yası mı?</p>
+
+      <p>&ldquo;İşleyen demir ışıldar&rdquo; derken, ışıltının kaynağının &ldquo;çaba&rdquo; ve &ldquo;zorluk&rdquo; olduğunu
+      unutup, her şeyi çözen bir zeka karşısında paslanacak mıyız; yoksa bu zeka, dünyevi
+      yükümüzü hafifletip, bizi asıl, derin ve yeni sorulara doğru iten zorunlu bir adım mı?</p>
+
+      <p>İnsan, kendine dert edinmeden, mücadele etmeden &ldquo;insan&rdquo; kalabilir mi?</p>
+
+      <p>Peki bir devri daha kapatan yapay zeka mı olacak, yoksa kendi yarattığı konforun
+      içinde anlamını yitiren insan mı?</p>
+    </div>
   </article>
 
   <footer class="foot">

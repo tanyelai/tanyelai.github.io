@@ -1,47 +1,57 @@
-/* Two small jobs: the theme toggle, and letting marginal figures animate when
-   they are actually on screen. Everything works without this file — the theme
-   follows the system and the figures render in their finished state. */
+/* Three small jobs: the theme toggle, the language toggle, and letting the
+   marginal figures wait until they are on screen before they draw.
+
+   Everything degrades: with no script the site is light, the notes are in
+   English, and every figure renders in its finished state. The counterfactual
+   switch in the masthead is a real checkbox and needs none of this. */
 (function () {
   "use strict";
 
   var root = document.documentElement;
-  var system = window.matchMedia("(prefers-color-scheme: dark)");
-  var buttons = document.querySelectorAll(".theme-toggle");
 
-  function current() {
-    return root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
-  }
-
-  function relabel() {
-    var next = current() === "dark" ? "light" : "dark";
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].setAttribute("aria-label", "Switch to the " + next + " theme");
+  function remember(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      /* private mode: the choice just won't outlive the tab */
     }
   }
 
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      var next = current() === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try {
-        localStorage.setItem("theme", next);
-      } catch (e) {
-        /* private mode: the choice just won't outlive the tab */
+  function wire(selector, attribute, values, describe) {
+    var buttons = document.querySelectorAll(selector);
+    if (!buttons.length) return;
+
+    function next() {
+      return root.getAttribute(attribute) === values[1] ? values[0] : values[1];
+    }
+
+    function relabel() {
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute("aria-label", describe(next()));
       }
-      relabel();
-    });
+    }
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", function () {
+        var value = next();
+        root.setAttribute(attribute, value);
+        remember(attribute.replace("data-", ""), value);
+        relabel();
+      });
+    }
+
+    relabel();
   }
 
-  // The system can change under us (sunset, or the OS schedule).
-  if (system.addEventListener) {
-    system.addEventListener("change", relabel);
-  } else if (system.addListener) {
-    system.addListener(relabel);
-  }
+  wire(".theme-toggle", "data-theme", ["light", "dark"], function (to) {
+    return "Switch to the " + to + " theme";
+  });
 
-  relabel();
+  wire(".lang-toggle", "data-lang", ["en", "tr"], function (to) {
+    return to === "tr" ? "Yazıları Türkçe oku" : "Read the notes in English";
+  });
 
-  var figures = document.querySelectorAll(".patch");
+  var figures = document.querySelectorAll(".fig");
   if (figures.length && "IntersectionObserver" in window) {
     var seen = new IntersectionObserver(
       function (entries) {

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notes to myself — 2 · Toygar Tanyel</title>
-<meta name="description" content="The only bridge between us and a model is words. How well do we know our own intentions?">
+<title>Notes to myself &mdash; 2 · Toygar Tanyel</title>
+<meta name="description" content="The only bridge between us and an agent is words. How well do we know our own intentions?">
 <link rel="canonical" href="https://tanyelai.github.io/notes/notes-to-myself-2.html">
-<meta property="og:title" content="Notes to myself — 2 · Toygar Tanyel">
-<meta property="og:description" content="The only bridge between us and a model is words. How well do we know our own intentions?">
+<meta property="og:title" content="Notes to myself &mdash; 2 · Toygar Tanyel">
+<meta property="og:description" content="The only bridge between us and an agent is words. How well do we know our own intentions?">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://tanyelai.github.io/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,300..500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
-<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
 
@@ -26,29 +26,38 @@
     <nav class="nav" style="margin-top:0" aria-label="Breadcrumb">
       <a href="/">&larr; toygar tanyel</a>
       <a href="/notes/">notes</a>
-          <button class="theme-toggle" type="button" aria-label="Switch to the dark theme">
-        <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
-        </svg>
-        <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.1"></circle>
-          <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
-        </svg>
-      </button>
+      <span class="nav-tools">
+        <button class="toggle lang-toggle" type="button" aria-label="Yazıları Türkçe oku">
+          <span class="to-tr">TR</span><span class="to-en">EN</span>
+        </button>
+        <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
+          <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
+          </svg>
+          <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.1"></circle>
+            <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
+          </svg>
+        </button>
+      </span>
     </nav>
 
-    <p class="note-date" style="margin-top:2.5rem">9 February 2026</p>
-    <h1 class="article-title">Notes to myself &mdash; 2</h1>
+    <p class="note-date" style="margin-top:2.5rem">
+      <span data-lang="en">9 February 2026</span><span data-lang="tr">9 Şubat 2026</span>
+    </p>
+    <h1 class="article-title">
+      <span data-lang="en">Notes to myself &mdash; 2</span><span data-lang="tr">Kendime düşünceler &mdash; 2</span>
+    </h1>
 
-    <div class="article-body">
-      <p>What are we really doing when we give a task to an AI system? We're translating
-      that fleeting <em>intention</em> in our heads into words.</p>
+    <div class="article-body" data-lang="en" lang="en">
+      <p>What are we really doing when we give a task to an AI agent? We're translating
+      that fleeting &ldquo;intention&rdquo; in our heads into words.</p>
 
-      <p>It takes those words, turns them into something of its own, and produces output.
-      Then we look at it and say &ldquo;no&hellip; that's not what I meant, there's so much more to
-      it&hellip;&rdquo;</p>
+      <p>The agent takes those words, transforms them into something of its own, and
+      produces output. Then we look at it and say &ldquo;no&hellip; that's not what I meant, there's
+      so much more to it&hellip;&rdquo;</p>
 
       <p>But wait &mdash; what did we mean?</p>
 
@@ -59,20 +68,20 @@
       always falls short. If it were a person across from me, they'd understand from my
       tone, my face, our shared history. They'd fill in the gaps.</p>
 
-      <p>Here, the only bridge between us is words.</p>
+      <p>With an agent, the only bridge between us is &ldquo;words&rdquo;.</p>
 
       <p>Guy Deutscher's <em>Through the Language Glass</em> comes to mind. Language doesn't
       just carry thought, it shapes it. Different languages carve up the same reality
       differently, and we mistake the carved shape for reality itself.</p>
 
-      <p>The model speaks a language too. It looks like mine. Fluent, but not its mother
+      <p>The agent speaks a language too. It looks like mine. Fluent, but not its mother
       tongue. I shape my intention within my own frame; it takes the same words and
       re-translates them in its own.</p>
 
       <p>Sometimes it aligns with what I meant, sometimes it doesn't. And the difference
       between the two isn't visible from the outside.</p>
 
-      <p>So the real question isn't &ldquo;why does it make mistakes.&rdquo;</p>
+      <p>So the real question isn't &ldquo;why does the agent make mistakes&rdquo;.</p>
 
       <p>Maybe it's this: how well do we know our own intentions, and how well can we
       express them?</p>
@@ -82,7 +91,43 @@
       <p>That we don't think as clearly as we think we do.</p>
     </div>
 
-    <p class="footnote">Written in Turkish. Translated for this page.</p>
+    <div class="article-body" data-lang="tr" lang="tr">
+      <p>Bir yapay zekaya (agent diyelim) görev verirken aslında ne yapıyoruz? Kafamızdaki
+      o uçucu &ldquo;niyeti&rdquo;, kelimelere çeviriyoruz.</p>
+
+      <p>Agent o kelimeleri alıyor, kendince bir şeye dönüştürüyor, ve üretiyor. Sonra biz
+      bakıp &ldquo;hayır.. bunu kastetmemiştim, bunların da daha çok yolu var&hellip;&rdquo; diyoruz.</p>
+
+      <p>Ama dur, ne kastetmiştik?</p>
+
+      <p>Bu soruyu ciddiye aldığımızda işler bence ilginçleşiyor. Çünkü çoğu zaman biz de ne
+      istediğimizi tam olarak bilmiyoruz. Biliyor muyuz?</p>
+
+      <p>Kafamızda bir his var, bir yön var, ama dile döküldüğünde bir şeyler eksik kalıyor.
+      Karşımdaki insan olsa tonumdan, yüzümden, ortak geçmişimizden anlar. Tamamlar.</p>
+
+      <p>Bir agent'la aramızdaki tek köprü &ldquo;kelimeler&rdquo;.</p>
+
+      <p>Guy Deutscher'in <em>Dilin Aynasından</em>'ı aklıma geliyor. Dil düşünceyi sadece
+      taşımaz, şekillendirir. Aynı gerçekliği farklı diller farklı keser, ve biz kesilen
+      şeklin gerçekliğin kendisi olduğunu sanırız.</p>
+
+      <p>Agent da bir dil konuşuyor. Benim dilim gibi görünüyor. Akıcı ama ana dili değil.
+      Ben niyetimi kendi çerçevemde şekillendiriyorum, o aynı kelimeleri alıp kendi dilinde
+      yeniden çeviriyor.</p>
+
+      <p>Bazen kastettiğim şeyle örtüşüyor, bazen örtüşmüyor. Ve ikisi arasındaki fark
+      dışarıdan görünmüyor.</p>
+
+      <p>O yüzden asıl soru &ldquo;agent neden hata yapıyor&rdquo; değil.</p>
+
+      <p>Belki şu.. biz niyetimizi ne kadar iyi biliyoruz, ve onu ne kadar iyi ifade
+      edebiliyoruz?</p>
+
+      <p>Bu sistemlerle çalışmak bize kendimiz hakkında bir şey öğretiyor sanırım.</p>
+
+      <p>Düşündüğümüz kadar net düşünmediğimizi.</p>
+    </div>
   </article>
 
   <footer class="foot">

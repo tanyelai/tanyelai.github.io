@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,300..500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
-<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
 
@@ -26,23 +26,32 @@
     <nav class="nav" style="margin-top:0" aria-label="Breadcrumb">
       <a href="/">&larr; toygar tanyel</a>
       <a href="/notes/">notes</a>
-          <button class="theme-toggle" type="button" aria-label="Switch to the dark theme">
-        <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
-        </svg>
-        <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.1"></circle>
-          <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
-        </svg>
-      </button>
+      <span class="nav-tools">
+        <button class="toggle lang-toggle" type="button" aria-label="Yazıları Türkçe oku">
+          <span class="to-tr">TR</span><span class="to-en">EN</span>
+        </button>
+        <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
+          <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
+          </svg>
+          <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.1"></circle>
+            <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
+          </svg>
+        </button>
+      </span>
     </nav>
 
-    <p class="note-date" style="margin-top:2.5rem">7 April 2026</p>
-    <h1 class="article-title">Following distance</h1>
+    <p class="note-date" style="margin-top:2.5rem">
+      <span data-lang="en">7 April 2026</span><span data-lang="tr">7 Nisan 2026</span>
+    </p>
+    <h1 class="article-title">
+      <span data-lang="en">Following distance</span><span data-lang="tr">Takip mesafesi</span>
+    </h1>
 
-    <div class="article-body">
+    <div class="article-body" data-lang="en" lang="en">
       <p>Every day there's a new truth. Wake up at five, cold shower, quit sugar, meditate,
       deep work, shallow work, no-code, low-code, AI, journaling, dopamine detox.</p>
 
@@ -58,7 +67,21 @@
       learn it from someone else?</p>
     </div>
 
-    <p class="footnote">Written in Turkish. Translated for this page.</p>
+    <div class="article-body" data-lang="tr" lang="tr">
+      <p>Her gün yeni bir doğru var. Sabah beşte kalk, soğuk duş, şekeri bırak, meditasyon,
+      deep work, shallow work, no-code, low-code, AI, journaling, dopamin detoksu.</p>
+
+      <p>Daha iyi yaşamak için bu kadar çok şey... belki de kendin gibi yaşamana yer kalmıyor.</p>
+
+      <p>Merak güzel bir şey. Belki de en güzel şey. Biyolojin hâlâ savanada, ama her sabah
+      zamanın gibi alarmını da çalan cihazdan yeterince <em>optimize olmadığını</em> öğrenerek
+      uyanıyorsun.</p>
+
+      <p>Herkes &ldquo;dengeli yaşam&rdquo; dediğinde.. o denge kimin dengesi?</p>
+
+      <p>&ldquo;Peki sağlıklı olan ne&rdquo; sorusunun bir cevabı olsaydı.. bunu başkalarından mı
+      öğrenmek isterdin?</p>
+    </div>
   </article>
 
   <footer class="foot">
