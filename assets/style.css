@@ -133,6 +133,20 @@ a:focus-visible {
   margin: 0;
 }
 
+/* A note under a rail label: same margin, but plain rather than a heading. */
+.rail-note {
+  margin: 1.4rem 0 0;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.6875rem;
+  line-height: 1.9;
+  color: var(--ink-3);
+}
+
+.rail-note b { color: var(--ink); font-weight: 500; }
+.rail-note a { color: var(--ink-3); border-bottom-color: var(--rule); }
+.rail-note .since { display: block; margin-top: 0.5rem; }
+
 .col { min-width: 0; }
 
 .col > :first-child { margin-top: 0; }
