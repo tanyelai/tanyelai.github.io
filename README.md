@@ -7,7 +7,6 @@ step: edit the file, push, done.
 index.html            home — profile, research, selected work, positions, notes
 publications.html     complete publication list + Scholar figures
 notes/                short pieces
-papers/               PDFs for work without a public venue link
 assets/style.css      the whole design system
 assets/favicon.svg
 scripts/              Scholar refresher (see below)
@@ -38,12 +37,12 @@ add it to the list in `notes/index.html` and to the Notes section of
 **A new paper.** Add an `<li class="pub">` to `publications.html`, and to
 `index.html` if it belongs in the selected eight. Link `doi`, `arxiv` and `code`
 where they exist; drop the ones that don't rather than pointing at a search
-page. For work with no public venue link, put the PDF in `papers/` and link
-`pdf`.
+page. Work with no public link stays unlinked — the venue line carries it.
 
 **Colour or type.** Everything is a custom property at the top of
-`assets/style.css`, defined once for light and twice for dark (media query plus
-an explicit `data-theme` override).
+`assets/style.css`: one `:root` block for light, one `prefers-color-scheme`
+block for dark. There is no theme toggle — the site follows the system, which is
+one less thing to maintain and one less script to load.
 
 ## Scholar figures
 
