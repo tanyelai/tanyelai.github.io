@@ -8,7 +8,9 @@ index.html            home — profile, research, selected work, positions, note
 publications.html     complete publication list + Scholar figures
 notes/                short pieces
 assets/style.css      the whole design system
+assets/site.js        theme toggle, and figures that wait to be seen
 assets/favicon.svg
+assets/og.png         social card, regenerated from scripts/og.html
 scripts/              Scholar refresher (see below)
 data/scholar.json     last verified citation figures
 ```
@@ -21,12 +23,23 @@ stays clean. Type is [Newsreader](https://fonts.google.com/specimen/Newsreader)
 across optical sizes with [DM Mono](https://fonts.google.com/specimen/DM+Mono)
 for the apparatus.
 
-The masthead trace is a single-lead ECG with one beat marked. The violet
-appears there and nowhere else that isn't a link: it is the colour of the
-counterfactual highlight bands in the ECG papers, and on this site it only ever
-marks the part of a signal that carries a decision.
+The masthead trace is an ECG with one beat marked. Hover it, or tab to it, and
+inside the mark the beat becomes the counterfactual: ST elevation off the J
+point and a taller T, the change that would flip the decision. Nothing outside
+the mark moves, which is the whole claim a counterfactual makes. It plays once
+on load so the interaction announces itself.
 
-Light and dark both follow the system setting.
+Beside the third research theme is the same gesture one dimension up: a
+mammogram field in patches, one patch marked. A band picks out an interval of a
+recording; a patch picks out a region of an image.
+
+The violet appears in those marks, in the tags, and on links under the cursor,
+and nowhere else. It is the colour of the highlight bands in the ECG papers.
+
+Light and dark follow the system unless the toggle in the nav says otherwise,
+in which case the choice is kept in `localStorage`. A tiny inline script in each
+`<head>` applies it before first paint so the page never flashes the wrong
+theme.
 
 ## Editing
 
@@ -40,9 +53,15 @@ where they exist; drop the ones that don't rather than pointing at a search
 page. Work with no public link stays unlinked — the venue line carries it.
 
 **Colour or type.** Everything is a custom property at the top of
-`assets/style.css`: one `:root` block for light, one `prefers-color-scheme`
-block for dark. There is no theme toggle — the site follows the system, which is
-one less thing to maintain and one less script to load.
+`assets/style.css`: `:root` for light, a `prefers-color-scheme` block for the
+system default, and `[data-theme]` blocks for an explicit choice. Change a value
+once and both figures, the tags and the links follow.
+
+**The ECG paths.** They are generated, not drawn: a sum of Gaussians for P, Q,
+R, S and T, with the counterfactual adding a smooth plateau off the J point and
+a larger T. The two paths must agree at the clip edges or a seam shows. The
+generator is not kept in the repo — the paths are static data now — but the
+morphology is described above if it ever needs redoing.
 
 ## Scholar figures
 
