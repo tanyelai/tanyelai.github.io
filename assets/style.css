@@ -332,7 +332,8 @@ a:focus-visible {
 .fig-tissue { fill: var(--tissue); }
 .fig-dense  { fill: var(--dense); }
 
-.fig-mark        { fill: var(--band); stroke: var(--accent); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.fig-box { stroke: var(--ink-2); stroke-width: 1.1; fill: none; vector-effect: non-scaling-stroke; }
+.fig-iso { stroke: var(--accent); fill: none; vector-effect: non-scaling-stroke; }
 .fig-mark-line   { stroke: var(--accent); stroke-width: 1.3; fill: none; vector-effect: non-scaling-stroke; }
 .fig-mark-dot    { fill: var(--accent); }
 .fig-mark-dash   { stroke: var(--accent); stroke-width: 1.1; fill: none; stroke-dasharray: 2.5 2.5; vector-effect: non-scaling-stroke; }

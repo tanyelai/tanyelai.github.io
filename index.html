@@ -180,32 +180,36 @@
     <div class="rail rail--figure">
       <figure class="fig">
         <svg viewBox="-3 -3 126 150" role="img"
-             aria-label="A mediolateral oblique mammogram: the pectoral muscle, the breast tissue, the posterior nipple line, and one region marked.">
+             aria-label="A mediolateral oblique mammogram. A radiologist has boxed the lesion; the model's saliency map peaks somewhere else.">
           <rect class="fig-hair" x="0.5" y="0.5" width="119" height="143"></rect>
           <path class="fig-tissue"
                 d="M0 26 C52 30, 96 54, 106 86 C96 122, 46 140, 0 144 Z"></path>
-          <path class="fig-dense" d="M0 0 L54 0 L0 72 Z"></path>
+          <path class="fig-dense" d="M0 0 L62 0 L0 96 Z"></path>
           <path class="fig-line fig-draw" pathLength="1"
                 d="M0 26 C52 30, 96 54, 106 86 C96 122, 46 140, 0 144"></path>
-          <g class="fig-mid">
-            <path class="fig-soft" d="M54 0 L0 72"></path>
-            <path class="fig-soft" d="M106 86 L113 86"></path>
+          <rect class="fig-box fig-mid" x="62" y="74" width="24" height="22"></rect>
+          <g class="fig-late">
+            <g class="fig-iso">
+              <ellipse cx="44" cy="62" rx="17"   ry="13"  stroke-width="1"   opacity="0.32"></ellipse>
+              <ellipse cx="44" cy="62" rx="11.5" ry="8.8" stroke-width="1.1" opacity="0.58"></ellipse>
+              <ellipse cx="44" cy="62" rx="6"    ry="4.6" stroke-width="1.2" opacity="0.88"></ellipse>
+            </g>
+            <circle class="fig-mark-dot" cx="44" cy="62" r="2.6"></circle>
           </g>
-          <path class="fig-mark fig-late"
-                d="M68 72 C74.5 72, 78 76.5, 78 82 C78 88, 74 92, 68 92 C61.5 92, 58 87.5, 58 82 C58 76, 62 72, 68 72 Z"></path>
         </svg>
-        <figcaption class="fig-caption">saliency</figcaption>
+        <figcaption class="fig-caption">pointing game</figcaption>
       </figure>
     </div>
     <div class="col">
       <div class="theme">
         <h3>Explanations that hold up in practice</h3>
-        <p>An explanation is worth what it is worth to the person reading it. With
-        radiologists I have measured whether saliency maps agree with what a clinician
-        actually needs, worked on cutting the annotation burden that keeps such systems
-        from being built at all, and written on how a department should choose between
-        the tools on offer. Much of what decides whether a method helps sits on that side
-        of the screen.</p>
+        <p>An explanation is worth what it is worth to the person reading it. With three
+        radiologists we scored whether saliency maps actually peak inside the lesion they
+        had boxed, and often enough they do not. Related work cuts the annotation burden
+        that keeps such systems from being built at all, replaces a positioning score
+        with the measurement a technologist already trusts, and asks how a department
+        should choose between the tools on offer. Much of what decides whether a method
+        helps sits on that side of the screen.</p>
       </div>
     </div>
   </section>
