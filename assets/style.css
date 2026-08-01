@@ -328,7 +328,6 @@ a:focus-visible {
 .fig-hair { stroke: var(--rule);  stroke-width: 1;   fill: none; vector-effect: non-scaling-stroke; }
 .fig-line { stroke: var(--ink-2); stroke-width: 1.2; fill: none; vector-effect: non-scaling-stroke; }
 .fig-soft { stroke: var(--ink-3); stroke-width: 1;   fill: none; vector-effect: non-scaling-stroke; opacity: 0.65; }
-.fig-dash { stroke: var(--ink-3); stroke-width: 1;   fill: none; stroke-dasharray: 2.5 3; opacity: 0.5; vector-effect: non-scaling-stroke; }
 .fig-dot  { fill: var(--ink-3); }
 .fig-tissue { fill: var(--tissue); }
 .fig-dense  { fill: var(--dense); }
