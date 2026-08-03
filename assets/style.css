@@ -133,6 +133,21 @@ a:focus-visible {
   margin: 0;
 }
 
+/* Sits under the Profile label, in the same margin as the research figures.
+   Deliberately smaller than they are: they carry information, this is a face. */
+.portrait {
+  display: block;
+  width: 100%;
+  max-width: 7rem;
+  height: auto;
+  margin-top: 1.1rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 47.99rem) {
+  .portrait { max-width: 5.5rem; margin-top: 0.85rem; }
+}
+
 /* A note under a rail label: same margin, but plain rather than a heading. */
 .rail-note {
   margin: 1.4rem 0 0;
