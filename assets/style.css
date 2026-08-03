@@ -166,20 +166,26 @@ a:focus-visible {
   .masthead { padding-top: 7.5rem; }
 }
 
-/* The name and the portrait share a line, so the circle lands on the same right
-   edge as the nav's toggles below it. The standfirst stays full width underneath,
-   which keeps it off the circle at every size. */
+/* Grid rather than flex so one element order gives two arrangements. Wide: the
+   portrait spans both rows, standing the full height of the name and the line
+   under it, and landing on the same right edge as the nav toggles below. Narrow:
+   it drops to the name's row and the standfirst takes the full width, which is
+   what stops a 128px circle from squeezing the standfirst into wrapping. */
 .masthead-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 1.75rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
 }
 
+.masthead-row .name       { grid-column: 1; grid-row: 1; }
+.masthead-row .standfirst { grid-column: 1; grid-row: 2; }
+
 .portrait {
-  flex: none;
-  width: clamp(3.25rem, 8vw, 4.5rem);
-  height: clamp(3.25rem, 8vw, 4.5rem);
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: clamp(4.5rem, 11vw, 8rem);
+  height: clamp(4.5rem, 11vw, 8rem);
   border-radius: 50%;
   object-fit: cover;
 }
@@ -314,6 +320,9 @@ a:focus-visible {
 .cf-input:checked ~ .trace-legend .cf-switch .state-cf  { display: none; }
 
 @media (max-width: 47.99rem) {
+  .masthead-row .standfirst { grid-column: 1 / -1; }
+  .portrait { grid-row: 1; }
+
   .trace svg { height: 46px; }
   .trace-legend { display: block; }
   .cf-switch { margin-left: 60.17%; }
