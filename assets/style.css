@@ -525,18 +525,32 @@ a.pub-title:hover, a.pub-title:focus-visible { color: var(--accent); }
 
 .metrics b { color: var(--ink); font-weight: 500; }
 
-.subhead {
+/* Group headings inside a column. Two classes rather than one on purpose:
+   `.col p` sets a margin, a colour and a measure on every paragraph in the
+   column and outranks a bare `.subhead`, which is what used to leave these
+   headings flush against the list above them and in the apparatus grey.
+
+   They are set in ink, not grey, so a heading cannot be mistaken for another
+   line of apparatus, and the rule above them is darker than the hairline
+   between two entries, so a break between groups reads differently from a
+   break between items. */
+.col .subhead {
   font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.6875rem;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-3);
-  margin: 2.5rem 0 0.85rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  max-width: none;
+  margin: 3.75rem 0 1.15rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--ink-3);
 }
 
-.subhead:first-child { margin-top: 0; }
+.col .subhead:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
 
 /* ---------- dated lists: positions, education, awards ---------- */
 
