@@ -558,7 +558,7 @@ a.pub-title:hover, a.pub-title:focus-visible { color: var(--accent); }
 
 .cv > li {
   display: grid;
-  grid-template-columns: 7.5rem minmax(0, 1fr);
+  grid-template-columns: 9rem minmax(0, 1fr);
   column-gap: 1.25rem;
   padding: 0.62rem 0;
   border-bottom: 1px solid var(--rule);
