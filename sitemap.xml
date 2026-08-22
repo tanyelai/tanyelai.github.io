@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tanyelai.github.io/</loc></url>
-  <url><loc>https://tanyelai.github.io/publications.html</loc></url>
-  <url><loc>https://tanyelai.github.io/cv.html</loc></url>
+  <url><loc>https://tanyelai.github.io/publications</loc></url>
+  <url><loc>https://tanyelai.github.io/cv</loc></url>
   <url><loc>https://tanyelai.github.io/notes/</loc></url>
-  <url><loc>https://tanyelai.github.io/notes/following-distance.html</loc></url>
-  <url><loc>https://tanyelai.github.io/notes/notes-to-myself-2.html</loc></url>
-  <url><loc>https://tanyelai.github.io/notes/notes-to-myself-1.html</loc></url>
+  <url><loc>https://tanyelai.github.io/notes/following-distance</loc></url>
+  <url><loc>https://tanyelai.github.io/notes/notes-to-myself-2</loc></url>
+  <url><loc>https://tanyelai.github.io/notes/notes-to-myself-1</loc></url>
 </urlset>
