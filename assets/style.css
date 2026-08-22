@@ -160,10 +160,13 @@ a:focus-visible {
 
 /* ---------- masthead ---------- */
 
-.masthead { padding: 5.5rem 0 0; }
+/* Kept short on purpose. There is no standfirst and no opening figure, so the
+   first thing read is the profile's own first sentence rather than anything
+   written to introduce it. That only works if the masthead clears the fold. */
+.masthead { padding: 3.25rem 0 0; }
 
 @media (min-width: 48rem) {
-  .masthead { padding-top: 7.5rem; }
+  .masthead { padding-top: 4.25rem; }
 }
 
 /* Name and portrait, one row. The portrait is sized in vw so it tracks the
@@ -177,14 +180,16 @@ a:focus-visible {
 }
 
 .portrait {
-  width: clamp(4.5rem, 11vw, 8rem);
-  height: clamp(4.5rem, 11vw, 8rem);
+  width: clamp(4rem, 8vw, 6rem);
+  height: clamp(4rem, 8vw, 6rem);
   border-radius: 50%;
   object-fit: cover;
 }
 
 .name {
-  font-size: clamp(2.5rem, 7.5vw, 4rem);
+  /* Floor set so "Toygar Tanyel", which cannot wrap, still fits a 320px
+     screen: Newsreader runs about 0.7em per character at this weight. */
+  font-size: clamp(1.85rem, 8.5vw, 4rem);
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.025em;
@@ -192,63 +197,6 @@ a:focus-visible {
   color: var(--ink);
 }
 
-
-/* ---------- the plate ----------
-   A calibration plot as the opening figure. The dashed diagonal is what a
-   system claims to know; the curve sagging under it is what turned out to be
-   true; the wedge between them is the overconfidence, measured at its widest.
-   It draws in three beats on load, claim before reality before the gap, which
-   is the order the argument runs in. */
-
-.plate {
-  margin: 2.5rem 0 0;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.plate svg {
-  display: block;
-  width: 100%;
-  max-width: 13rem;
-  height: auto;
-  flex: none;
-  overflow: visible;
-}
-
-.plate-axis  { fill: none; stroke: var(--rule);  stroke-width: 1; vector-effect: non-scaling-stroke; }
-.plate-gap   { fill: var(--band); stroke: none; }
-.plate-ref   { fill: none; stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; }
-.plate-curve { fill: none; stroke: var(--ink-2); stroke-width: 1.4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.plate-err   { fill: none; stroke: var(--accent); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
-.plate-mark circle { fill: var(--accent); }
-.plate-mark .plate-err-foot { fill: none; stroke: var(--accent); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
-
-.plate-legend { padding: 0; }
-
-.plate-line {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.045em;
-  line-height: 1.75;
-  color: var(--ink-3);
-  margin: 0;
-}
-
-.plate-name {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
-  color: var(--accent);
-  margin: 0.7rem 0 0;
-}
-
-@media (max-width: 47.99rem) {
-  .plate { display: grid; gap: 1.15rem; justify-items: start; }
-  .plate svg { max-width: 9.5rem; }
-  .plate-line { font-size: 0.68rem; }
-}
 
 /* The name is set with a non-breaking space, so it cannot wrap out of a
    collision with the portrait. Below this width the two stack instead. */
@@ -307,7 +255,7 @@ a:focus-visible {
   font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
-  margin: 2.75rem 0 0;
+  margin: 2rem 0 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -327,7 +275,7 @@ a:focus-visible {
 .masthead-rule {
   border: 0;
   border-top: 1px solid var(--rule);
-  margin: 2.75rem 0 3.5rem;
+  margin: 1.9rem 0 2.6rem;
 }
 
 /* ---------- toggles ---------- */
@@ -624,13 +572,8 @@ a.pub-title:hover, a.pub-title:focus-visible { color: var(--accent); }
    finished drawing rather than nothing. */
 
 @media (prefers-reduced-motion: no-preference) {
-  .plate-axis   { animation: settle 700ms ease backwards; }
-  .plate-ref    { animation: draw 900ms cubic-bezier(0.32, 0.06, 0.2, 1) 200ms backwards; }
-  .plate-curve  { animation: draw 1200ms cubic-bezier(0.32, 0.06, 0.2, 1) 900ms backwards; }
-  /* The gap and its measure arrive last: the page settles on the discrepancy. */
-  .plate-gap    { animation: settle 900ms ease 1900ms backwards; }
-  .plate-mark   { animation: settle 800ms ease 2150ms backwards; }
-  .plate-legend { animation: settle 800ms ease 2300ms backwards; }
+  .masthead-row { animation: settle 700ms ease backwards; }
+  .nav          { animation: settle 700ms ease 150ms backwards; }
 
   .fig.in-view .fig-draw { animation: draw 1100ms cubic-bezier(0.32, 0.06, 0.2, 1) backwards; }
   .fig.in-view .fig-mid  { animation: settle 700ms ease 620ms backwards; }
