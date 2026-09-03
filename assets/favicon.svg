@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#fafaf8"/>
-  <path d="M2 20 L8 20 L10 17 L12 23 L14 5 L16.5 27 L18.5 18 L21 20 L24 20 L26 16 L28 20 L30 20"
-        fill="none" stroke="#6e4c8f" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="TT">
+  <!-- A monogram, not a mark. At a 16px tab only two or three strokes survive,
+       which is too little for any of the page's diagrams and enough for two
+       letters. Drawn as rectangles rather than <text> so no font has to
+       resolve. Solid blue reads against light and dark browser chrome alike;
+       the previous white-ground ECG went dim on one and shouted on the other. -->
+  <rect width="32" height="32" rx="6" fill="#1772d0"/>
+  <g fill="#ffffff">
+    <rect x="3"  y="7" width="12" height="4"/>
+    <rect x="7"  y="7" width="4"  height="18"/>
+    <rect x="17" y="7" width="12" height="4"/>
+    <rect x="21" y="7" width="4"  height="18"/>
+  </g>
 </svg>

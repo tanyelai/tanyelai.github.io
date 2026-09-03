@@ -4,9 +4,12 @@ Personal site. Plain HTML and one stylesheet, served by GitHub Pages. No build
 step: edit the file, push, done.
 
 ```
-index.html            the whole page: news, research, publications, experience,
-                      awards, teaching, notes
-notes/                short pieces, each in English and Turkish
+index.html            the whole page: news, research, publications, education,
+                      experience, awards, teaching
+cv.pdf                the CV
+publications.pdf      the complete publication list
+notes/                short pieces, each in English and Turkish; linked from the
+                      hero, not listed on the front page
 assets/style.css      the whole design system
 assets/site.js        theme toggle, language toggle, figures that wait to be seen
 assets/favicon.svg
@@ -73,23 +76,38 @@ rather than pointing at nowhere.
 month only when you know it; a bare year is honest and reads fine next to one.
 Keep it to a sentence.
 
-**A new paper.** Add an `<li>` to the right `<ol class="pubs">` group. The shape
-is three paragraphs: `.pub-title`, then `.authors` (his own name wrapped in
-`<span class="me">`, venue in `<span class="venue">`, year), then `.links`.
-Bind a `.tag` to the year before it with `&nbsp;` so a lone *Q1* cannot be
-stranded on a line of its own. Link `doi`, `arXiv` and `code` where they exist;
-drop the ones that don't rather than pointing at a search page. Work with no
-public link stays unlinked, and the venue line carries it.
+**A new paper.** The front page carries five, not the whole record, and the
+complete list lives in `publications.pdf`. So a new paper means updating that
+PDF; it only joins the page if it displaces one of the five.
 
-Groups run peer-reviewed first: journal articles, then conference and workshop
-papers, then the book chapter, then under review and preprints. That order
-leads with the strongest part of the record rather than the newest.
+The five are chosen on venue and on first or co-first authorship. Currently four
+Q1 journal articles and one book chapter. Two rules worth keeping: prefer the
+journal version over the workshop version of the same project, and do not spend
+two of five slots on one line of work. The breast-positioning paper appears once
+for that reason, as the Diagnostics article rather than the MICCAI workshop
+paper, even though MICCAI is the better-known venue.
+
+An entry is three paragraphs: `.pub-title`, then `.authors` (his own name
+wrapped in `<span class="me">`, venue in `<span class="venue">`, year), then
+`.links`. Bind a `.tag` to the year before it with `&nbsp;` so a lone *Q1*
+cannot be stranded on a line of its own. Link `doi`, `arXiv` and `code` where
+they exist; drop the ones that don't rather than pointing at a search page.
+
+**Numbers that grow.** Do not put a live head count on the page. It was
+"roughly 60,000 people" for about a week before it was 63,000, and a figure the
+reader can tell is stale costs more than no figure at all. Rounding up to a
+number you have not reached yet is worse. Bands that stay true for a long time
+work ("tens of thousands", "several hundred paying businesses"), and a date
+never rots at all, which is why the Promake entry leans on February 2026 rather
+than on a total. Fixed historical counts are fine as they are: the 400,000
+mammograms and the 60,000 labelled will not change. The CV is the place for a
+dated snapshot; the site is standing text.
 
 **A new note.** Copy any file in `notes/` and replace the title, date and body.
 Every piece of text that differs by language lives in a pair of elements marked
 `data-lang="en"` and `data-lang="tr"`; keep both halves or the toggle will show
-a gap. Then add it to `notes/index.html` and to the Notes section of
-`index.html`.
+a gap. Then add it to `notes/index.html`. The front page does not list notes;
+it links to `/notes/` from the hero and that is the only place to keep in step.
 
 Careful with that attribute: the toggle sets `data-lang` on `<html>`, so the CSS
 rules that hide the inactive language are descendant selectors. A bare
@@ -108,6 +126,13 @@ removal of class names does not, and the page renders as unstyled HTML until the
 cache expires. So when class names change, bump `N` in all five HTML files at
 once and the old copy can no longer be served. A tweak to values inside existing
 rules needs no bump.
+
+**The favicon.** `assets/favicon.svg` is a TT monogram drawn as four
+rectangles rather than `<text>`, so no font has to resolve, on a solid blue
+ground that holds against light and dark browser chrome alike. At a 16px tab
+only two or three strokes survive, which rules out any of the page's diagrams.
+Favicons are cached harder than anything else, so it carries the same `?v=`
+query as the other assets.
 
 **The social card.** `scripts/og.html` is a 1200×630 page; screenshot it at that
 size and save the result as `assets/og.png`. Its ECG is the same idea as the

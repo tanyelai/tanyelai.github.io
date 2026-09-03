@@ -380,6 +380,14 @@ h3 {
 
 .links .sep { color: var(--ink-4); }
 
+/* The escape hatch under a selected list: quieter than the list, and
+   far enough below it not to read as a sixth entry. */
+.pubs-more {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
 .tag {
   font-size: 12px;
   font-weight: 700;
@@ -426,7 +434,13 @@ h3 {
 /* ---------- section nav ----------
    Fixed to the right margin on wide screens, where there is dead
    space either side of an 800px column anyway. Hidden below that,
-   since a long page on a phone is a scroll, not a map. */
+   since a long page on a phone is a scroll, not a map.
+
+   The labels are always on. Revealing them on hover, as the pages
+   this borrows from do, leaves a column of six unlabelled dots that
+   tells the reader nothing and has to be probed one at a time. A
+   table of contents that cannot be read is not one, so the dots keep
+   their colour states and the words simply stay. */
 
 .side-nav {
   position: fixed;
@@ -458,23 +472,17 @@ h3 {
   flex: none;
 }
 
-.side-nav .label { opacity: 0; transition: opacity 140ms ease; }
+.side-nav .label { white-space: nowrap; }
 
-.side-nav a:hover .label,
-.side-nav a:focus-visible .label,
-.side-nav a.is-active .label { opacity: 1; }
-
-.side-nav a.is-active { color: var(--link); }
+.side-nav a.is-active { color: var(--link); font-weight: 700; }
 .side-nav a.is-active .dot { background: var(--link); border-color: var(--link); }
 .side-nav a:hover { color: var(--link-hover); }
 .side-nav a:hover .dot { border-color: var(--link-hover); }
 
-@media (min-width: 1120px) {
+/* Raised from 1120px: the widest label, "Publications", needs about
+   95px with its dot, and below this the nav would crowd the column. */
+@media (min-width: 1180px) {
   .side-nav { display: block; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .side-nav .label { transition: none; }
 }
 
 /* ---------- nav / toggles ----------
