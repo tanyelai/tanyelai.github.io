@@ -77,18 +77,19 @@
       me, and the rest of the work grows out of them. On the machine side that
       becomes <strong>explainable and interpretable AI</strong>, counterfactual
       reasoning, and the evaluation of explanation: what we are entitled to claim
-      about a model's decision, and whether that claim survives deployment. I
-      came to those questions through medical imaging and biosignals, where a
-      wrong explanation carries a cost, and work on them now mostly in language
-      models.
+      about a model's decision, and whether that claim survives deployment.
+      Vision and language came first, then several years on medical imaging and
+      biosignals, where a wrong explanation carries a cost. The work is now on
+      language models and the agent systems built on them.
     </p>
 
     <p class="summary">
-      Alongside research I have worked to bring such methods into practice. At
-      Hevi AI I built the breast-cancer detection stack inside what became, in
-      March 2025, the first MDR-certified medical AI product suite in Turkiye. I am now
-      a founding AI engineer at Promake, on agentic systems that take open-ended
-      requests from tens of thousands of people.
+      Alongside research I build and own these systems in production. At
+      <em>Promake</em> I am the architect of the agent stack behind a platform in
+      daily use, taking open-ended requests from tens of thousands of people.
+      Earlier, at <em>Hevi AI</em>, I built the breast-cancer detection stack
+      inside what became, in March 2025, the first MDR-certified medical AI
+      product suite in Turkiye.
     </p>
 
     <p class="seealso">
@@ -208,7 +209,42 @@
       done.</p>
   </div>
 </div>
-
+<div class="research-item">
+  <figure class="fig">
+    <svg viewBox="-4 -4 128 128" role="img"
+         aria-label="Many lines converging from the left into one narrow channel, then fanning out again to the right, with the channel itself marked.">
+      <path class="fig-soft fig-draw" pathLength="1"
+            d="M8 12 L50 60 M8 30 L50 60 M8 48 L50 60 M8 72 L50 60 M8 92 L50 60 M8 112 L50 60 M70 60 L112 14 M70 60 L112 34 M70 60 L112 52 M70 60 L112 68 M70 60 L112 90 M70 60 L112 108"></path>
+      <g class="fig-dot fig-mid">
+        <circle cx="8" cy="12" r="2.1"></circle><circle cx="8" cy="30" r="2.1"></circle>
+        <circle cx="8" cy="48" r="2.1"></circle><circle cx="8" cy="72" r="2.1"></circle>
+        <circle cx="8" cy="92" r="2.1"></circle><circle cx="8" cy="112" r="2.1"></circle>
+        <circle cx="112" cy="14" r="2.1"></circle><circle cx="112" cy="34" r="2.1"></circle>
+        <circle cx="112" cy="52" r="2.1"></circle><circle cx="112" cy="68" r="2.1"></circle>
+        <circle cx="112" cy="90" r="2.1"></circle><circle cx="112" cy="108" r="2.1"></circle>
+      </g>
+      <g class="fig-late">
+        <path class="fig-mark-line" d="M50 60 L70 60"></path>
+        <circle class="fig-mark-hollow" cx="50" cy="60" r="3.6"></circle>
+        <circle class="fig-mark-dot" cx="70" cy="60" r="3.6"></circle>
+      </g>
+    </svg>
+    <figcaption class="fig-caption">narrow channel</figcaption>
+  </figure>
+  <div>
+    <h3>Interaction, where the bottleneck is us</h3>
+    <p>Capability is rarely what limits a system built for people. The channel
+      between them is, and it is made of words. A request carries less than it
+      needs to: one sentence, a dozen unstated constraints, and whatever is left
+      unsaid gets filled from the training prior rather than from this person.
+      Phrasing carries more weight than it appears to, and instruction tuning is
+      part of why: change how a question is framed and the judgment moves with it.
+      Asking an agent to account for itself settles less than it seems to, since a
+      self-report need not identify whatever actually produced the answer. We are
+      the narrow part in all of this, and I would rather work there than on
+      another increment of capability.</p>
+  </div>
+</div>
 <div class="research-item">
   <figure class="fig">
     <svg viewBox="-4 -4 128 128" role="img"
@@ -247,7 +283,6 @@
       instead of something to trust.</p>
   </div>
 </div>
-
 <div class="research-item">
   <figure class="fig">
     <svg viewBox="-3 -3 126 150" role="img"
@@ -283,43 +318,6 @@
       people directly and you are measuring trust, which moves with presentation
       as much as with correctness. That is not a reason to skip the measurement,
       only to be careful about what a good result is evidence of.</p>
-  </div>
-</div>
-
-<div class="research-item">
-  <figure class="fig">
-    <svg viewBox="-4 -4 128 128" role="img"
-         aria-label="Many lines converging from the left into one narrow channel, then fanning out again to the right, with the channel itself marked.">
-      <path class="fig-soft fig-draw" pathLength="1"
-            d="M8 12 L50 60 M8 30 L50 60 M8 48 L50 60 M8 72 L50 60 M8 92 L50 60 M8 112 L50 60 M70 60 L112 14 M70 60 L112 34 M70 60 L112 52 M70 60 L112 68 M70 60 L112 90 M70 60 L112 108"></path>
-      <g class="fig-dot fig-mid">
-        <circle cx="8" cy="12" r="2.1"></circle><circle cx="8" cy="30" r="2.1"></circle>
-        <circle cx="8" cy="48" r="2.1"></circle><circle cx="8" cy="72" r="2.1"></circle>
-        <circle cx="8" cy="92" r="2.1"></circle><circle cx="8" cy="112" r="2.1"></circle>
-        <circle cx="112" cy="14" r="2.1"></circle><circle cx="112" cy="34" r="2.1"></circle>
-        <circle cx="112" cy="52" r="2.1"></circle><circle cx="112" cy="68" r="2.1"></circle>
-        <circle cx="112" cy="90" r="2.1"></circle><circle cx="112" cy="108" r="2.1"></circle>
-      </g>
-      <g class="fig-late">
-        <path class="fig-mark-line" d="M50 60 L70 60"></path>
-        <circle class="fig-mark-hollow" cx="50" cy="60" r="3.6"></circle>
-        <circle class="fig-mark-dot" cx="70" cy="60" r="3.6"></circle>
-      </g>
-    </svg>
-    <figcaption class="fig-caption">narrow channel</figcaption>
-  </figure>
-  <div>
-    <h3>Interaction, where the bottleneck is us</h3>
-    <p>Capability is rarely what limits a system built for people. The channel
-      between them is, and it is made of words. A request carries less than it
-      needs to: one sentence, a dozen unstated constraints, and whatever is left
-      unsaid gets filled from the training prior rather than from this person.
-      Phrasing carries more weight than it appears to, and instruction tuning is
-      part of why: change how a question is framed and the judgment moves with it.
-      Asking an agent to account for itself settles less than it seems to, since a
-      self-report need not identify whatever actually produced the answer. We are
-      the narrow part in all of this, and I would rather work there than on
-      another increment of capability.</p>
   </div>
 </div>
 
@@ -434,6 +432,14 @@
       <span class="note">A functional stimulation system for gait
         rehabilitation, driving neural plasticity after spinal cord injury with
         graphene-based nerve electrodes. Group of Prof. Burak Güçlü.</span></td>
+  </tr>
+  <tr>
+    <td>2020&ndash;21</td>
+    <td><span class="what">Computer vision</span>,
+      <span class="where"><a href="https://rover.yildiz.edu.tr/" rel="external noopener">Yıldız Rover</a>, Yıldız Technical University</span>
+      <span class="note">On the team's first rover, where I built the vision
+        system. The team now runs to five generations of vehicle and competes at
+        the University Rover Challenge.</span></td>
   </tr>
   <tr>
     <td>2020&ndash;23</td>
