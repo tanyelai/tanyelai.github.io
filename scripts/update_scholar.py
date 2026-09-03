@@ -34,7 +34,7 @@ from pathlib import Path
 SCHOLAR_ID = "Nj5PIzcAAAAJ"
 ROOT = Path(__file__).resolve().parent.parent
 STORE = ROOT / "data" / "scholar.json"
-HTML_FILES = ["index.html", "publications.html"]
+HTML_FILES = ["index.html"]
 
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "

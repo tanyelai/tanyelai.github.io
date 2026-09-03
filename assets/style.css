@@ -1,47 +1,66 @@
 /* ------------------------------------------------------------------
-   toygar tanyel — personal site
+   toygar tanyel, personal site
 
-   Type    Newsreader worked across its optical sizes, DM Mono for the
-           apparatus in the margin.
-   Colour  Cool slate ink on near-neutral paper. Light is the default; dark
-           is opt-in through the toggle. One violet, lifted from the
-           highlight bands in the ECG papers, and it only ever marks the
-           part of something that carries a decision.
+   Layout and palette follow the academic-homepage convention that
+   descends from jonbarron.github.io: an 800px measure, Lato, #1772d0
+   links turning #f09228 on hover, and date-left / one-line-right
+   tables for everything that is a list of dated facts. The
+   convention is the point. A reader in the field knows where to look
+   without being taught.
+
+   Three departures, each for a reason.
+
+   Dark theme, because the toggle predates this redesign and people
+   expect it now. It is the same two hues lifted until they hold
+   contrast on a dark ground, not a second design.
+
+   The marginal figures, kept from the previous site. They sit in the
+   Research section in the same shape a Barron page gives a paper
+   thumbnail: small square left, text right. Orange is the mark for
+   whatever carries the decision.
+
+   Bold only, no italics for emphasis. Italics are reserved for the
+   two places the field actually uses them: a book title and a thesis
+   title.
    ------------------------------------------------------------------ */
 
 :root {
   color-scheme: light;
 
-  --paper:  #fafaf8;
-  --ink:    #14171a;
-  --ink-2:  #383e45;  /* body prose — close to ink, this is a reading site */
-  --ink-3:  #757c84;  /* apparatus: labels, dates, venues */
-  --rule:   #dfe0dc;
-  --accent: #63438a;
-  --band:   rgba(99, 67, 138, 0.15);
-  --wash:   rgba(99, 67, 138, 0.05);
-  --tissue: rgba(20, 23, 26, 0.055);
-  --dense:  rgba(20, 23, 26, 0.11);
+  --paper:      #ffffff;
+  --ink:        #1c1c1c;
+  --ink-2:      #333333;  /* body prose */
+  --ink-3:      #666666;  /* apparatus: dates, venues, author lists */
+  --ink-4:      #8c8c8c;  /* faintest: separators, captions */
+  --rule:       #e6e6e6;
+  --link:       #1772d0;
+  --link-hover: #f09228;
+  --accent:     #f09228;  /* figures only: the marked part */
+  --band:       rgba(240, 146, 40, 0.16);
+  --tissue:     rgba(28, 28, 28, 0.055);
+  --dense:      rgba(28, 28, 28, 0.11);
+  --hairline:   #d8d8d8;
 
-  --col:  36rem;   /* prose measure */
-  --rail: 8.5rem;  /* marginal apparatus */
-  --gap:  2.75rem;
+  --measure: 800px;
 }
 
 /* Set by the toggle and remembered in localStorage. */
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --paper:  #0f1113;
-  --ink:    #edede8;
-  --ink-2:  #bcc1c6;
-  --ink-3:  #7d848c;
-  --rule:   #282c30;
-  --accent: #b79ddb;
-  --band:   rgba(183, 157, 219, 0.18);
-  --wash:   rgba(183, 157, 219, 0.07);
-  --tissue: rgba(237, 237, 232, 0.075);
-  --dense:  rgba(237, 237, 232, 0.15);
+  --paper:      #1a1c1e;
+  --ink:        #e6e6e4;
+  --ink-2:      #c6c8cb;
+  --ink-3:      #93989e;
+  --ink-4:      #767b81;
+  --rule:       #2c2f33;
+  --link:       #64a6e8;
+  --link-hover: #f0a752;
+  --accent:     #f0a752;
+  --band:       rgba(240, 167, 82, 0.18);
+  --tissue:     rgba(230, 230, 228, 0.07);
+  --dense:      rgba(230, 230, 228, 0.14);
+  --hairline:   #3a3e43;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -56,253 +75,452 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 34px auto;
+  padding: 0 18px;
+  max-width: var(--measure);
   background: var(--paper);
   color: var(--ink);
-  font-family: "Newsreader", Georgia, "Times New Roman", serif;
-  font-optical-sizing: auto;
-  font-size: 1.0625rem;
+  font-family: "Lato", Verdana, Helvetica, Arial, sans-serif;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.72;
+  line-height: 1.6;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
-/* ---------- language ----------
-   Both languages ship in the markup and the toggle picks one. English unless
-   asked otherwise, since the rest of the site is in English. */
-
-/* Both selectors are descendant selectors on purpose. The toggle sets the
-   attribute on <html>, and a bare [data-lang="tr"] rule would match the root
-   itself and hide the entire document. */
-:root:not([data-lang="tr"]) [data-lang="tr"] { display: none; }
-:root[data-lang="tr"]       [data-lang="en"] { display: none; }
-
-/* ---------- links ---------- */
+p { margin: 0.55em 0; }
 
 a {
-  color: inherit;
+  color: var(--link);
   text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  transition: border-color 140ms ease, color 140ms ease;
 }
 
-a:hover,
-a:focus-visible {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
+a:hover, a:focus { color: var(--link-hover); }
 
 a:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
   border-radius: 1px;
 }
 
-/* ---------- page frame ---------- */
+/* ---------- language ----------
+   Both languages ship in the markup and the toggle picks one. English
+   unless asked otherwise, since the rest of the site is in English.
 
-.page {
-  max-width: calc(var(--rail) + var(--gap) + var(--col));
-  margin: 0 auto;
-  padding: 0 1.5rem 6rem;
+   Both selectors are descendant selectors on purpose. The toggle sets
+   the attribute on <html>, and a bare [data-lang="tr"] rule would
+   match the root itself and hide the entire document. */
+:root:not([data-lang="tr"]) [data-lang="tr"] { display: none; }
+:root[data-lang="tr"]       [data-lang="en"] { display: none; }
+
+/* ---------- headings ---------- */
+
+h2 {
+  margin: 40px 0 10px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  padding: 0;
+  border: 0;
+  scroll-margin-top: 24px;
 }
 
-/* Reading pages drop the marginal apparatus and keep only the measure. */
-.page--narrow { max-width: 38rem; }
-
-/* The scholarly grid: a mono apparatus in the margin, prose in the column. */
-.row {
-  display: grid;
-  grid-template-columns: var(--rail) minmax(0, var(--col));
-  column-gap: var(--gap);
-  align-items: start;
+h3 {
+  margin: 24px 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
 }
 
-.row + .row { margin-top: 3.75rem; }
-.row + .row--tight { margin-top: 2.5rem; }
+/* ---------- hero ---------- */
 
-.rail {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  line-height: 1.6;
-  padding-top: 0.62rem;
-  margin: 0;
+/* The portrait floats rather than sitting in a grid column. A grid
+   leaves a tall empty cell under a 200px photo next to three
+   paragraphs of prose; a float lets the paragraphs close back over
+   the full measure once they clear it, which is what jonbarron.info
+   does and why its hero reads as one block instead of two. The photo
+   therefore comes first in source order, which also gives the mobile
+   stack the right order with no reordering rule. */
+.hero { margin-bottom: 4px; }
+.hero::after { content: ""; display: table; clear: both; }
+
+.hero-text { min-width: 0; }
+
+.hero-photo-wrap {
+  float: right;
+  width: 200px;
+  margin: 4px 0 16px 30px;
 }
 
-/* A note under a rail label: same margin, but plain rather than a heading. */
-.rail-note {
-  margin: 1.4rem 0 0;
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-size: 0.6875rem;
-  line-height: 1.9;
-  color: var(--ink-3);
-}
-
-.rail-note b { color: var(--ink); font-weight: 500; }
-.rail-note a { color: var(--ink-3); border-bottom-color: var(--rule); }
-.rail-note .since { display: block; margin-top: 0.5rem; }
-
-.col { min-width: 0; }
-
-.col > :first-child { margin-top: 0; }
-.col > :last-child  { margin-bottom: 0; }
-
-.col p {
-  margin: 0 0 1.1em;
-  color: var(--ink-2);
-  max-width: 34rem;
-}
-
-/* ---------- masthead ---------- */
-
-/* Kept short on purpose. There is no standfirst and no opening figure, so the
-   first thing read is the profile's own first sentence rather than anything
-   written to introduce it. That only works if the masthead clears the fold. */
-.masthead { padding: 3.25rem 0 0; }
-
-@media (min-width: 48rem) {
-  .masthead { padding-top: 4.25rem; }
-}
-
-/* Name and portrait, one row. The portrait is sized in vw so it tracks the
-   name's clamp rather than fighting it, and lands on the same right edge as the
-   nav toggles below. */
-.masthead-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 1.75rem;
-  align-items: center;
-}
-
-.portrait {
-  width: clamp(4rem, 8vw, 6rem);
-  height: clamp(4rem, 8vw, 6rem);
-  border-radius: 50%;
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: 50% 22%;
+  border-radius: 50%;
 }
 
 .name {
-  /* Floor set so "Toygar Tanyel", which cannot wrap, still fits a 320px
-     screen: Newsreader runs about 0.7em per character at this weight. */
-  font-size: clamp(1.85rem, 8.5vw, 4rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.025em;
   margin: 0;
-  color: var(--ink);
+  padding: 0;
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
-
-/* The name is set with a non-breaking space, so it cannot wrap out of a
-   collision with the portrait. Below this width the two stack instead. */
-@media (max-width: 34rem) {
-  .masthead-row { grid-template-columns: minmax(0, 1fr); row-gap: 1.15rem; }
-  .portrait { grid-row: 1; width: 4.25rem; height: 4.25rem; }
-  .name     { grid-row: 2; }
+.affil {
+  margin: 7px 0 0;
+  font-size: 14px;
+  color: var(--ink-3);
 }
 
-/* ---------- marginal figures ----------
-   One beside each research theme, each doing what the masthead does: mark the
-   part that carries the decision. A crossing, a hub, a region. */
+.contactemail {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.contactemail a { color: var(--ink-3); }
+.contactemail a:hover, .contactemail a:focus { color: var(--link-hover); }
+
+.contactemail .at {
+  color: var(--ink-4);
+  letter-spacing: 0.04em;
+  padding: 0 1px;
+}
+
+.summary {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+
+.summary + .summary { margin-top: 0.75em; }
+
+.seealso {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+/* ---------- link row ----------
+   Words, not icons. The tradition reads Email / CV / Scholar /
+   GitHub, and a row of brand marks reads as a portfolio instead. */
+
+.links-row {
+  margin: 14px 0 0;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 9px;
+}
+
+.links-row .sep {
+  color: var(--ink-4);
+  user-select: none;
+}
+
+/* The CV has no file behind it yet. Rather than link nowhere, say so:
+   an unlinked word with the reason on hover. Swap the <span> for an
+   <a href="/cv.pdf"> when the PDF lands and this rule stops applying. */
+.links-row .pending {
+  color: var(--ink-4);
+  cursor: help;
+  border-bottom: 1px dotted var(--ink-4);
+}
+
+/* ---------- dated tables ----------
+   News, awards, service, positions: all the same shape, because they
+   are all the same kind of fact. Date in a fixed left column, one
+   sentence on the right. */
+
+.dated {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0 0;
+}
+
+.dated td {
+  padding: 5px 14px 5px 0;
+  vertical-align: top;
+  border: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Fixed and wrapping, not nowrap: "Sep 2023 - Jan 2025" under
+   nowrap forces the column wider and knocks every other section's
+   date column out of alignment with it. */
+.dated td:first-child {
+  width: 112px;
+  padding-right: 16px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.dated .what { font-weight: 700; }
+.dated .where { color: var(--ink-3); }
+.dated .note {
+  display: block;
+  color: var(--ink-3);
+  font-size: 14px;
+  margin-top: 1px;
+}
+
+/* ---------- research ----------
+   A paper thumbnail's shape, holding a diagram instead. */
+
+.research-item {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  margin: 20px 0 0;
+}
+
+.research-item h3 { margin-top: 0; }
+.research-item p { margin: 2px 0 0; color: var(--ink-2); }
 
 .fig { margin: 0; }
 
 .fig svg {
   display: block;
   width: 100%;
-  max-width: 7.5rem;
   height: auto;
   overflow: visible;
 }
 
 .fig-caption {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  margin-top: 0.6rem;
-  line-height: 1.4;
+  margin-top: 5px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  color: var(--ink-4);
+  text-align: center;
 }
 
-.fig-hair { stroke: var(--rule);  stroke-width: 1;   fill: none; vector-effect: non-scaling-stroke; }
-.fig-line { stroke: var(--ink-2); stroke-width: 1.2; fill: none; vector-effect: non-scaling-stroke; }
-.fig-soft { stroke: var(--ink-3); stroke-width: 1;   fill: none; vector-effect: non-scaling-stroke; opacity: 0.65; }
-.fig-dot  { fill: var(--ink-3); }
+.fig-hair   { stroke: var(--hairline); stroke-width: 1;   fill: none; vector-effect: non-scaling-stroke; }
+.fig-line   { stroke: var(--ink-2);    stroke-width: 1.2; fill: none; vector-effect: non-scaling-stroke; }
+.fig-soft   { stroke: var(--ink-3);    stroke-width: 1;   fill: none; vector-effect: non-scaling-stroke; opacity: 0.6; }
+.fig-dot    { fill: var(--ink-3); }
 .fig-tissue { fill: var(--tissue); }
 .fig-dense  { fill: var(--dense); }
+.fig-box    { stroke: var(--ink-2); stroke-width: 1.1; fill: none; vector-effect: non-scaling-stroke; }
 
-.fig-box { stroke: var(--ink-2); stroke-width: 1.1; fill: none; vector-effect: non-scaling-stroke; }
-.fig-iso { stroke: var(--accent); fill: none; vector-effect: non-scaling-stroke; }
+.fig-iso         { stroke: var(--accent); fill: none; vector-effect: non-scaling-stroke; }
 .fig-mark-line   { stroke: var(--accent); stroke-width: 1.3; fill: none; vector-effect: non-scaling-stroke; }
 .fig-mark-dot    { fill: var(--accent); }
 .fig-mark-dash   { stroke: var(--accent); stroke-width: 1.1; fill: none; stroke-dasharray: 2.5 2.5; vector-effect: non-scaling-stroke; }
 .fig-mark-hollow { fill: none; stroke: var(--accent); stroke-width: 1.3; vector-effect: non-scaling-stroke; }
 
-.rail--figure { padding-top: 0.4rem; }
+/* ---------- publications ----------
+   Numbered, because a numbered list is countable, and on an academic
+   page the count is information. */
 
-@media (max-width: 47.99rem) {
-  .fig svg { max-width: 6.25rem; }
+.section-note {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--ink-3);
+  overflow-wrap: anywhere;
 }
 
-/* ---------- nav ---------- */
+.section-note b { color: var(--ink); }
+.section-note a { color: var(--link); }
+
+.pubs {
+  margin: 8px 0 0;
+  padding-left: 24px;
+}
+
+.pubs > li {
+  margin-bottom: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.pubs > li::marker { color: var(--ink-4); }
+
+.pub-title {
+  margin: 0 0 2px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.36;
+}
+
+.pub-title a { color: var(--ink); }
+.pub-title a:hover, .pub-title a:focus { color: var(--link-hover); }
+
+.authors {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+/* The one convention that has to survive scanning: which of these
+   names is his. */
+.me {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--ink);
+}
+
+.venue { font-weight: 700; font-style: normal; }
+
+.links {
+  margin: 3px 0 0;
+  font-size: 13px;
+}
+
+.links .sep { color: var(--ink-4); }
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- notes list ---------- */
+
+.notes { list-style: none; margin: 8px 0 0; padding: 0; }
+
+.notes li {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.notes li:last-child { border-bottom: 0; }
+
+.note-date {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-4);
+  letter-spacing: 0.02em;
+}
+
+/* Blue, unlike a paper title. A paper entry carries its own row of
+   doi / arXiv links underneath, so the title can afford to be dark;
+   a note has nothing else on the row to say it is clickable. */
+.note-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--link);
+}
+
+.note-title:hover, .note-title:focus { color: var(--link-hover); }
+
+.note-dek {
+  margin: 1px 0 0;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+/* ---------- section nav ----------
+   Fixed to the right margin on wide screens, where there is dead
+   space either side of an 800px column anyway. Hidden below that,
+   since a long page on a phone is a scroll, not a map. */
+
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: none;
+}
+
+.side-nav ul { list-style: none; margin: 0; padding: 0; }
+
+.side-nav li + li { margin-top: 9px; }
+
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-4);
+}
+
+.side-nav .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-4);
+  flex: none;
+}
+
+.side-nav .label { opacity: 0; transition: opacity 140ms ease; }
+
+.side-nav a:hover .label,
+.side-nav a:focus-visible .label,
+.side-nav a.is-active .label { opacity: 1; }
+
+.side-nav a.is-active { color: var(--link); }
+.side-nav a.is-active .dot { background: var(--link); border-color: var(--link); }
+.side-nav a:hover { color: var(--link-hover); }
+.side-nav a:hover .dot { border-color: var(--link-hover); }
+
+@media (min-width: 1120px) {
+  .side-nav { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-nav .label { transition: none; }
+}
+
+/* ---------- nav / toggles ----------
+   Used by the notes pages as a breadcrumb, and on the front page to
+   carry the theme toggle. */
 
 .nav {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  margin: 2rem 0 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem 1.5rem;
+  gap: 0 18px;
+  font-size: 14px;
+  margin: 0 0 4px;
 }
-
-.nav a { border-bottom-color: transparent; color: var(--ink-2); }
-.nav a:hover, .nav a:focus-visible { color: var(--accent); border-bottom-color: var(--accent); }
 
 .nav-tools {
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;
 }
-
-.masthead-rule {
-  border: 0;
-  border-top: 1px solid var(--rule);
-  margin: 1.9rem 0 2.6rem;
-}
-
-/* ---------- toggles ---------- */
 
 .toggle {
-  padding: 0.2rem;
+  appearance: none;
   background: none;
   border: 0;
-  color: var(--ink-3);
+  padding: 2px;
+  margin: 0;
   cursor: pointer;
+  color: var(--ink-4);
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
-  font: inherit;
-  letter-spacing: 0.08em;
-  transition: color 140ms ease;
 }
 
-.toggle:hover,
-.toggle:focus-visible { color: var(--accent); }
+.toggle:hover, .toggle:focus-visible { color: var(--link-hover); }
 
 .toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
   border-radius: 2px;
 }
 
-/* Each toggle shows what it will switch to. */
 .theme-toggle .sun  { display: none; }
 .theme-toggle .moon { display: block; }
 :root[data-theme="dark"] .theme-toggle .sun  { display: block; }
@@ -313,268 +531,74 @@ a:focus-visible {
 :root[data-lang="tr"] .lang-toggle .to-tr { display: none; }
 :root[data-lang="tr"] .lang-toggle .to-en { display: inline; }
 
-/* ---------- research themes ---------- */
-
-.theme + .theme { margin-top: 2rem; }
-
-.theme h3 {
-  font-size: 1.0625rem;
-  font-weight: 500;
-  font-style: italic;
-  margin: 0 0 0.35em;
-  color: var(--ink);
-  letter-spacing: -0.005em;
+.masthead-rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 18px 0 0;
 }
-
-/* ---------- publications ---------- */
-
-.pubs { list-style: none; margin: 0; padding: 0; }
-
-.pub {
-  padding: 0 0 1.15rem;
-  margin: 0 0 1.15rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.pub:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
-
-.pub-title {
-  display: block;
-  font-size: 1rem;
-  line-height: 1.45;
-  color: var(--ink);
-  margin: 0 0 0.4rem;
-  text-wrap: pretty;
-}
-
-a.pub-title { border-bottom: 0; }
-a.pub-title:hover, a.pub-title:focus-visible { color: var(--accent); }
-
-.pub-meta {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.71rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-3);
-  line-height: 1.7;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 0.5rem;
-  margin: 0;
-}
-
-.pub-meta + .pub-meta { margin-top: 0.15rem; }
-.pub-meta .venue { color: var(--ink-2); }
-.pub-meta .sep { color: var(--rule); }
-.pub-meta a { color: var(--ink-2); border-bottom-color: var(--ink-3); }
-
-.tag {
-  color: var(--accent);
-  border: 1px solid currentColor;
-  border-radius: 2px;
-  padding: 0 0.28em;
-  font-size: 0.63rem;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  align-self: center;
-}
-
-.legend {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.68rem;
-  line-height: 1.8;
-  color: var(--ink-3);
-  letter-spacing: 0.01em;
-  margin: 0 0 1.75rem;
-}
-
-.legend .mark { color: var(--accent); }
-
-.metrics {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.71rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-3);
-  margin: 0 0 1.75rem;
-  padding: 0.1rem 0 0.1rem 0.85rem;
-  border-left: 2px solid var(--accent);
-  line-height: 1.95;
-}
-
-.metrics b { color: var(--ink); font-weight: 500; }
-
-/* Group headings inside a column. Two classes rather than one on purpose:
-   `.col p` sets a margin, a colour and a measure on every paragraph in the
-   column and outranks a bare `.subhead`, which is what used to leave these
-   headings flush against the list above them and in the apparatus grey.
-
-   They are set in ink, not grey, so a heading cannot be mistaken for another
-   line of apparatus, and the rule above them is darker than the hairline
-   between two entries, so a break between groups reads differently from a
-   break between items. */
-.col .subhead {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  max-width: none;
-  margin: 3.75rem 0 1.15rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--ink-3);
-}
-
-.col .subhead:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
-
-/* ---------- dated lists: positions, education, awards ---------- */
-
-.cv { list-style: none; margin: 0; padding: 0; }
-
-.cv > li {
-  display: grid;
-  grid-template-columns: 9rem minmax(0, 1fr);
-  column-gap: 1.25rem;
-  padding: 0.62rem 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-}
-
-.cv > li:last-child { border-bottom: 0; }
-
-.cv .when {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.71rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-3);
-  line-height: 1.55;
-}
-
-.cv .what { font-size: 0.98rem; line-height: 1.5; color: var(--ink); }
-.cv .where { display: block; font-size: 0.9rem; color: var(--ink-3); font-style: italic; }
-
-.cv .what ul {
-  margin: 0.5rem 0 0.15rem;
-  padding-left: 1.05rem;
-  font-size: 0.92rem;
-  color: var(--ink-2);
-  line-height: 1.62;
-}
-
-.cv .what li { margin: 0 0 0.35rem; }
-.cv .what li::marker { color: var(--ink-3); }
-
-/* ---------- notes ---------- */
-
-.notes { list-style: none; margin: 0; padding: 0; }
-
-.notes li {
-  padding: 0 0 1rem;
-  margin: 0 0 1rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.notes li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
-
-.note-title { font-size: 1.0625rem; color: var(--ink); border-bottom: 0; display: inline-block; }
-.note-title:hover, .note-title:focus-visible { color: var(--accent); }
-
-.note-date {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
-  display: block;
-  margin-bottom: 0.2rem;
-}
-
-.note-dek { color: var(--ink-2); font-size: 0.98rem; margin: 0.15rem 0 0; line-height: 1.6; }
-
-/* ---------- elsewhere ---------- */
-
-.elsewhere { list-style: none; margin: 0; padding: 0; }
-
-.elsewhere li {
-  display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  column-gap: 1.25rem;
-  padding: 0.42rem 0;
-  align-items: baseline;
-}
-
-.elsewhere .what {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-
-.elsewhere .val { font-size: 0.98rem; }
 
 /* ---------- article pages ---------- */
 
-.article { padding-top: 4.5rem; }
+.page { max-width: var(--measure); margin: 0 auto; }
+.page--narrow { max-width: 620px; }
+
+.article { padding-top: 4px; }
 
 .article-title {
-  font-size: clamp(1.7rem, 4.5vw, 2.35rem);
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0.5rem 0 0;
+  margin: 22px 0 0;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
-.article-body { margin-top: 2.5rem; }
+.article-body { margin-top: 22px; }
 
 .article-body p {
-  margin: 0 0 1.25em;
+  margin: 0 0 1.15em;
   color: var(--ink-2);
+  line-height: 1.68;
 }
 
 .article-body p:last-child { margin-bottom: 0; }
-.article-body em { color: var(--ink); }
+.article-body em { color: var(--ink); font-weight: 700; font-style: normal; }
 
 .footnote {
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.68rem;
-  line-height: 1.8;
-  color: var(--ink-3);
-  letter-spacing: 0.01em;
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
+  margin-top: 32px;
+  padding-top: 14px;
   border-top: 1px solid var(--rule);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-4);
 }
 
 /* ---------- footer ---------- */
 
 .foot {
-  margin-top: 5rem;
-  padding-top: 1.5rem;
+  margin-top: 48px;
+  padding-top: 16px;
   border-top: 1px solid var(--rule);
-  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-3);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-4);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.5rem 1.5rem;
+  gap: 6px 24px;
 }
 
-.foot a { border-bottom-color: transparent; }
+.foot a { color: var(--ink-4); }
+.foot a:hover, .foot a:focus { color: var(--link-hover); }
+
+.credit { color: var(--ink-4); }
 
 /* ---------- motion ----------
-   Everything uses `backwards`, never `forwards`: the resting state of every
-   element is its natural one, so a browser that skips the animation shows the
-   finished drawing rather than nothing. */
+   Everything uses `backwards`, never `forwards`: the resting state of
+   every element is its natural one, so a browser that skips the
+   animation shows the finished drawing rather than nothing. */
 
 @media (prefers-reduced-motion: no-preference) {
-  .masthead-row { animation: settle 700ms ease backwards; }
-  .nav          { animation: settle 700ms ease 150ms backwards; }
-
   .fig.in-view .fig-draw { animation: draw 1100ms cubic-bezier(0.32, 0.06, 0.2, 1) backwards; }
   .fig.in-view .fig-mid  { animation: settle 700ms ease 620ms backwards; }
   .fig.in-view .fig-late { animation: settle 700ms ease 980ms backwards; }
@@ -588,24 +612,41 @@ a.pub-title:hover, a.pub-title:focus-visible { color: var(--accent); }
 
 /* ---------- narrow ---------- */
 
-@media (max-width: 47.99rem) {
-  .row {
+@media (max-width: 720px) {
+  body { margin: 20px auto; }
+
+  .hero-photo-wrap {
+    float: none;
+    width: 132px;
+    margin: 0 0 14px;
+  }
+
+  .research-item {
     grid-template-columns: minmax(0, 1fr);
-    row-gap: 0.85rem;
+    gap: 10px;
   }
-  .rail {
-    padding-top: 0;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 0.5rem;
+  .fig { max-width: 128px; }
+
+  /* Stack the date above its line, so neither column is squeezed. */
+  .dated td {
+    display: block;
+    width: 100% !important;
+    padding: 3px 0;
+    white-space: normal;
   }
-  .rail--figure { border-bottom: 0; padding-bottom: 0.35rem; }
-  .row + .row { margin-top: 3rem; }
-  .row + .row--tight { margin-top: 2rem; }
-  .cv > li, .elsewhere li { grid-template-columns: minmax(0, 1fr); row-gap: 0.1rem; }
-  .cv .when { margin-bottom: 0.15rem; }
+  .dated td:first-child {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-4);
+    padding-bottom: 0;
+  }
+  .dated tr + tr td:first-child { padding-top: 10px; }
+
   .foot { flex-direction: column; }
 }
 
-@media (min-width: 64rem) {
-  :root { --rail: 9.5rem; --gap: 3.25rem; }
+@media (max-width: 460px) {
+  .name { font-size: 25px; }
+  h2 { font-size: 17px; }
+  .pubs { padding-left: 20px; }
 }
