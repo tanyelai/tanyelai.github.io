@@ -80,12 +80,19 @@ Keep it to a sentence.
 complete list lives in `publications.pdf`. So a new paper means updating that
 PDF; it only joins the page if it displaces one of the five.
 
-The five are chosen on venue and on first or co-first authorship. Currently four
-Q1 journal articles and one book chapter. Two rules worth keeping: prefer the
-journal version over the workshop version of the same project, and do not spend
-two of five slots on one line of work. The breast-positioning paper appears once
-for that reason, as the Diagnostics article rather than the MICCAI workshop
-paper, even though MICCAI is the better-known venue.
+The six are chosen on venue, contribution and field. Currently four Q1 journal
+articles, an ICML workshop oral, and a book chapter.
+
+Three rules worth keeping. Prefer the journal version over the workshop version
+of the same project; the breast-positioning work appears once for that reason,
+as the Diagnostics article rather than the MICCAI workshop paper, even though
+MICCAI is the better-known venue. Do not spend two slots on one line of work.
+And keep at least one entry that says which research community this is aimed
+at, even where he is not first author: the target is a CS PhD, four Q1 radiology
+journals on their own read as a medical imaging researcher, and the ICML oral on
+mechanistic interpretability is the entry that fixes that. It sits second rather
+than last for the same reason, so the first two entries carry both the
+first-author record and the current field.
 
 An entry is three paragraphs: `.pub-title`, then `.authors` (his own name
 wrapped in `<span class="me">`, venue in `<span class="venue">`, year), then
