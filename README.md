@@ -100,6 +100,15 @@ whole page.
 `assets/style.css`: `:root` for light, `:root[data-theme="dark"]` for dark.
 Change a value once and every figure, tag and link follows.
 
+**Bump `?v=` when the CSS changes structurally.** Every page loads
+`/assets/style.css?v=N` and `/assets/site.js?v=N`. GitHub Pages serves assets
+with `Cache-Control: max-age=600`, so for ten minutes after a deploy a returning
+visitor can be handed the old stylesheet. A recolour survives that; a rename or
+removal of class names does not, and the page renders as unstyled HTML until the
+cache expires. So when class names change, bump `N` in all five HTML files at
+once and the old copy can no longer be served. A tweak to values inside existing
+rules needs no bump.
+
 **The social card.** `scripts/og.html` is a 1200×630 page; screenshot it at that
 size and save the result as `assets/og.png`. Its ECG is the same idea as the
 research figures one context over: the recording in grey, and the counterfactual
