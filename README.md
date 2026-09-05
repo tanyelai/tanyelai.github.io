@@ -4,9 +4,9 @@ Personal site. Plain HTML and one stylesheet, served by GitHub Pages. No build
 step: edit the file, push, done.
 
 ```
-index.html            the whole page: news, research, publications, education,
-                      experience, awards, teaching
-cv.pdf                the CV
+index.html            the front page: news, publications, awards, teaching
+research.html         the four questions, with their figures
+cv.pdf                the CV: education, positions, the full record
 publications.pdf      the complete publication list
 notes/                short pieces, each in English and Turkish; linked from the
                       hero, not listed on the front page
@@ -109,6 +109,19 @@ never rots at all, which is why the Promake entry leans on February 2026 rather
 than on a total. Fixed historical counts are fine as they are: the 400,000
 mammograms and the 60,000 labelled will not change. The CV is the place for a
 dated snapshot; the site is standing text.
+
+**What does not go on the front page.** Education and employment history. No
+page in this lineage carries them: jonbarron, phomarkon and Yuhui Zhang all put
+the degrees and the career into the opening paragraph and leave the record to
+the CV. Measured before the cut, those two sections were 31% of the page and
+duplicated `cv.pdf` outright. The front page is 992 words now against 1937,
+which sits beside phomarkon at 1125 and Yuhui Zhang at 1255; jonbarron and
+Owens run to 5000 and 7000, but that is a hundred publications with a
+description each, not prose about themselves.
+
+The test to apply before adding anything: does it help a reader decide, in
+thirty seconds, what this person is? If it is proof rather than identity, it
+belongs in the CV.
 
 **A new note.** Copy any file in `notes/` and replace the title, date and body.
 Every piece of text that differs by language lives in a pair of elements marked
