@@ -4,7 +4,7 @@ Personal site. Plain HTML and one stylesheet, served by GitHub Pages. No build
 step: edit the file, push, done.
 
 ```
-index.html            the front page: news, publications, awards, teaching
+index.html            the front page: news, publications, awards
 research.html         the four questions, with their figures
 cv.pdf                the CV: education, positions, the full record
 publications.pdf      the complete publication list
