@@ -274,6 +274,20 @@ h3 {
   margin-top: 1px;
 }
 
+/* ---------- open questions ----------
+   Set off from the prose, because they are the standing kind. */
+
+.questions {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0 0 0 15px;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-2);
+}
+
+.questions li { margin: 0 0 7px; line-height: 1.5; }
+.questions li:last-child { margin-bottom: 0; }
+
 /* ---------- research ----------
    A paper thumbnail's shape, holding a diagram instead. */
 

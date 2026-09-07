@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
@@ -43,24 +43,12 @@
 
 <h1 class="article-title">Research</h1>
 <p class="section-note">Topics I have worked on and still enjoy learning about.</p>
-<p>
-  Explanation resists being a field. What counts as a good one depends on who
-  is asking and what they already accept, which is why a century of
-  philosophy of science left the question open rather than closed. That is
-  the appeal rather than the defect. People want an explanation before they
-  can say what would satisfy them, and nothing gets regulated that cannot
-  first be explained. Machine learning met the same question from the
-  engineering side. There is a literature arguing that what these methods
-  produce is not explanation in the philosophers' sense, and I think it
-  mostly misses the point. Whether the thing explained is a machine or a
-  person, the reasons for what it did have to be recoverable for the account
-  to mean anything, which is one demand rather than two. Where the machine
-  case falls short, it falls short on means. The methods work mathematically
-  up to a point and no further, and if they improve they should move toward
-  human explanations rather than away from them, because what an explanation
-  has to satisfy is a person. Otherwise there would be no reason to produce
-  one.
-  </p>
+<ul class="questions">
+  <li>What is it to explain something?</li>
+  <li>When is an explanation finished, and who decides?</li>
+  <li>Does an explanation have to be true to be useful, and is a true one always useful?</li>
+  <li>Would an explanation with nobody to receive it still be one?</li>
+</ul>
 <hr class="masthead-rule">
 
 <div class="research-item">
@@ -202,18 +190,24 @@
   <div>
     <h3>Evaluating explanations, the harder half</h3>
     <p>Producing an explanation is the easy part. Judging whether it was any
-      good has no floor under it. To score one you would need to know what
-      the right explanation was, and if you knew that you would not have
-      needed the explanation. So the field measures proxies. Does the
-      saliency map land inside the box a radiologist drew? That tells you
-      how closely the model attends to what a person attends to. It does not
-      tell you whether the map reflects what the model did. The distinction
-      has hardened lately into two kinds of faithfulness. An explanation can
-      reproduce a model's outputs while having nothing in common with its
-      internal steps, or it can track those steps. Interpretability aims at
-      the second, explainability usually at the first, and a good many
-      disagreements about explainable AI turn out to be about which one was
-      meant.</p>
+      good has no floor under it. People want one before they can say what
+      would satisfy them, and to score one you would need to know what the
+      right explanation was, which is what you did not have. So the field
+      measures proxies. Does the saliency map land inside the box a
+      radiologist drew? That tells you how closely the model attends to what
+      a person attends to. It does not tell you whether the map reflects
+      what the model did. The distinction has hardened lately into two kinds
+      of faithfulness. An explanation can reproduce a model's outputs while
+      having nothing in common with its internal steps, or it can track
+      those steps. Interpretability aims at the second, explainability
+      usually at the first, and a good many disagreements about explainable
+      AI turn out to be about which one was meant. Whether what is explained
+      is a model or a person, the reasons for what it did have to be
+      recoverable for the account to mean anything, and where the machine
+      case falls short it falls short on means. If the methods improve they
+      should move toward human explanation rather than away from it, because
+      what an explanation has to satisfy is a person. That is also why
+      nothing gets regulated that cannot first be explained.</p>
   </div>
 </div>
 
