@@ -80,7 +80,7 @@ Keep it to a sentence.
 complete list lives in `publications.pdf`. So a new paper means updating that
 PDF; it only joins the page if it displaces one of the five.
 
-The six are chosen on venue, contribution and field. Currently four Q1 journal
+The six are chosen on venue, contribution and field. Currently four journal
 articles, an ICML workshop oral, and a book chapter.
 
 Three rules worth keeping. Prefer the journal version over the workshop version
@@ -88,17 +88,19 @@ of the same project; the breast-positioning work appears once for that reason,
 as the Diagnostics article rather than the MICCAI workshop paper, even though
 MICCAI is the better-known venue. Do not spend two slots on one line of work.
 And keep at least one entry that says which research community this is aimed
-at, even where he is not first author: the target is a CS PhD, four Q1 radiology
-journals on their own read as a medical imaging researcher, and the ICML oral on
+at, even where he is not first author: the target is a CS PhD, four medical imaging
+and biosignal journals on their own read as a medical imaging researcher, and the ICML oral on
 mechanistic interpretability is the entry that fixes that. It sits second rather
 than last for the same reason, so the first two entries carry both the
 first-author record and the current field.
 
 An entry is three paragraphs: `.pub-title`, then `.authors` (his own name
 wrapped in `<span class="me">`, venue in `<span class="venue">`, year), then
-`.links`. Bind a `.tag` to the year before it with `&nbsp;` so a lone *Q1*
+`.links`. Bind a `.tag` to the year before it with `&nbsp;` so a lone *oral*
 cannot be stranded on a line of its own. Link `doi`, `arXiv` and `code` where
 they exist; drop the ones that don't rather than pointing at a search page.
+No quartile tags: a quartile depends on the index and the year, and in JCR 2025
+two of the four journals here were Q2, so the tag said less than it seemed to.
 
 **Numbers that grow.** Do not put a live head count on the page. It was
 "roughly 60,000 people" for about a week before it was 63,000, and a figure the
