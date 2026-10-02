@@ -298,15 +298,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   margin-bottom: 18px;
 }
 
-.more-link {
-  font-size: 13.5px;
-  color: var(--ink-3);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.more-link:hover { color: var(--accent-ink); }
-
 /* ---------- home ---------- */
 
 .intro {
@@ -406,6 +397,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .dated .where { color: var(--ink-3); }
 
 .venue { font-weight: 600; font-style: normal; }
+
+/* The home page shows only the newest lines; this row says the list
+   goes on. It sits in the text column, under the last line. */
+.dated-more {
+  display: block;
+  padding: 10px 0 0 114px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.dated-more:hover, .dated-more:focus-visible { color: var(--accent-ink); }
 
 /* ---------- research map ----------
    Topics are outlined pills, papers are dots, dashed lines say which
@@ -1075,6 +1079,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .bio p { font-size: 16px; }
 
   .dated li { grid-template-columns: minmax(0, 1fr); row-gap: 1px; }
+  .dated-more { padding-left: 0; }
 
   .ls-hint--wide { display: none; }
   .ls-hint--narrow { display: block; }
