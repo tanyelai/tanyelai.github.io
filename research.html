@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=11">
+<link rel="stylesheet" href="/assets/style.css?v=13">
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
@@ -40,7 +40,13 @@
 
 <header class="site-head">
   <div class="col site-head-inner">
-    <a class="site-name" href="/">Toygar Tanyel</a>
+    <a class="site-home" href="/" aria-label="Home" title="Home">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3.6 10.6 12 3.8l8.4 6.8"></path>
+        <path d="M5.9 9v10.4a.9.9 0 0 0 .9.9h3.5v-5.6h3.4v5.6h3.5a.9.9 0 0 0 .9-.9V9"></path>
+      </svg>
+    </a>
     <nav class="site-nav" aria-label="Site">
       <a href="/research" aria-current="page">Research</a>
       <a href="/publications">Publications</a>
@@ -257,7 +263,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=11" defer></script>
+<script src="/assets/site.js?v=13" defer></script>
 
 </body>
 </html>

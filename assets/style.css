@@ -196,12 +196,20 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   min-height: var(--head);
 }
 
-.site-name {
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  white-space: nowrap;
+.site-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--ink-3);
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
+
+.site-home:hover, .site-home:focus-visible { color: var(--accent-ink); border-color: var(--ink-4); }
+.site-home[aria-current="page"] { color: var(--ink); }
 
 .site-nav {
   margin-left: auto;
