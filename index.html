@@ -18,44 +18,75 @@
 <link rel="icon" href="/assets/favicon.png?v=4" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=11">
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
 
-<nav class="nav" aria-label="Page tools">
-  <span class="nav-tools">
-    <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
-      <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
-      </svg>
-      <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.1"></circle>
-        <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
-      </svg>
-    </button>
-  </span>
-</nav>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M2.5 9.5 12 4.5l9.5 5-9.5 5z"/><path d="M6.5 11.8v4.4c0 1.4 2.5 2.8 5.5 2.8s5.5-1.4 5.5-2.8v-4.4"/><path d="M21.5 9.5v5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8 10.5V17"/><circle cx="8" cy="7.3" r="0.7" fill="currentColor"/><path d="M12 17v-6.5"/><path d="M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9V17"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.8 6.6 12 13l8.2-6.4"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12"/><path d="m6 11 6 6 6-6"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></symbol>
+  <symbol id="i-paper" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/></symbol>
+  <symbol id="i-ship" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5"/><path d="M12 12v9"/></symbol>
+  <symbol id="i-work" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></symbol>
+  <symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M9 15.2 7.5 21l4.5-2.2 4.5 2.2-1.5-5.8"/><path d="m9.6 10 1.7 1.7 3.2-3.4"/></symbol>
+</svg>
 
-<!-- =================================================================
-     Hero
-     ================================================================= -->
-<div class="hero">
-  <div class="hero-photo-wrap">
-    <img class="hero-photo" src="/assets/toygar.jpg" alt="Toygar Tanyel"
-         width="200" height="200" decoding="async">
+<header class="site-head">
+  <div class="col site-head-inner">
+    <a class="site-name" href="/">Toygar Tanyel</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/research">Research</a>
+      <a href="/publications">Publications</a>
+      <a href="/path">Path</a>
+      <a href="/notes/">Notes</a>
+      <a href="/cv.pdf">CV</a>
+    </nav>
+    <span class="nav-tools">
+      <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
+        <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
+        </svg>
+        <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.1"></circle>
+          <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
+        </svg>
+      </button>
+    </span>
   </div>
-  <div class="hero-text">
-    <h1 class="name">Toygar Tanyel</h1>
-    <p class="affil">Founding AI Engineer, Promake<br>
-      Visiting Researcher, Centre for Industrial Software,<br>
-      University of Southern Denmark</p>
-    <p class="contactemail"><a href="mailto:contact.toygar@gmail.com">contact.toygar<span class="at"> at </span>gmail<span class="at"> dot </span>com</a></p>
+</header>
 
-    <p class="summary">
+<main class="col">
+
+  <section class="intro" aria-label="Introduction">
+    <img class="portrait" src="/assets/toygar.jpg" alt="Toygar Tanyel" width="76" height="76" decoding="async">
+    <div>
+      <h1 class="name">Toygar Tanyel</h1>
+      <p class="roles">Founding AI Engineer, Promake<br>
+        Visiting Researcher, Centre for Industrial Software, University of Southern Denmark</p>
+    </div>
+  </section>
+
+  <div class="fields">
+    <p class="kicker"><span>Explanation</span><span>Causal abstraction</span><span>Philosophy of AI</span><span>Cognitive science</span></p>
+    <div class="contact-row">
+      <a class="icon-link" href="mailto:contact.toygar@gmail.com" aria-label="Email" title="contact.toygar at gmail dot com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></a>
+      <a class="icon-link" href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ" rel="external noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="icon" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
+      <a class="icon-link" href="https://github.com/tanyelai" rel="external noopener" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></a>
+      <a class="icon-link" href="https://linkedin.com/in/toygar-tanyel" rel="external noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+    </div>
+  </div>
+
+  <div class="bio">
+    <p>
       I am a visiting researcher at the <a
       href="https://www.sdu.dk/en/forskning/cis" rel="external
       noopener">Centre for Industrial Software</a>, <a
@@ -69,8 +100,7 @@
       rel="external noopener">Ilkay Oksuz</a>, was on counterfactual
       explanation.
     </p>
-
-    <p class="summary">
+    <p>
       Everything I work on comes back to the same two things: what it takes
       to <em>understand</em> something, and what it takes to <em>explain</em>
       it to someone else. <strong>Cognitive science and the philosophy of
@@ -85,8 +115,7 @@
       who still looks like the one who can, which is the same failure again:
       <strong>understanding leaves and the look of it stays</strong>.
     </p>
-
-    <p class="summary">
+    <p>
       At Promake I design and build the multi-agent stack. Before that I built
       the AI stack in hBreastMMG, Hevi AI's breast-cancer detection and
       diagnosis product for hospitals and part of <strong>the first radiology
@@ -94,227 +123,59 @@
       is where the problem stopped being abstract for me: an explanation that
       a radiologist, say, will act on has to be more than <em>convincing</em>.
     </p>
-
-    <p class="seealso">
-      See also my full <a href="/cv.pdf">CV</a>, the
-      <a href="/publications.pdf">complete list of publications</a>, my
-      <a href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ" rel="external noopener">Google Scholar</a>
-      record, <a href="/research">the research in more detail</a>, and some
-      <a href="/notes/">notes</a> on the non-technical half of this.
-    </p>
-
-    <div class="links-row" aria-label="Links">
-      <a href="mailto:contact.toygar@gmail.com">Email</a>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href="/cv.pdf">CV</a>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ" rel="external noopener">Scholar</a>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href="https://github.com/tanyelai" rel="external noopener">GitHub</a>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href="https://linkedin.com/in/toygar-tanyel" rel="external noopener">LinkedIn</a>
-    </div>
   </div>
 
-</div>
-
-<!-- =================================================================
-     News
-     ================================================================= -->
-<h2 id="news">News</h2>
-<table class="dated">
-  <tr>
-    <td>Sep 2026</td>
-    <td><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">Routing
+  <section class="section" aria-labelledby="news-title">
+    <div class="section-head">
+      <h2 class="h2" id="news-title">News</h2>
+      <a class="more-link" href="/path#news">All news &rarr;</a>
+    </div>
+    <ul class="dated">
+      <li>
+        <span class="when">Sep 2026</span>
+        <span class="text"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">Routing
       subspaces: auditing evaluation-to-deployment mismatch in fine-tuned language
-      models</a> accepted to the <span class="venue">NeurIPS 2026</span> main track.</td>
-  </tr>
-  <tr>
-    <td>Sep 2026</td>
-    <td>Promake's advertising product shipped, the second there that I have
-      architected and built.</td>
-  </tr>
-  <tr>
-    <td>Jul 2026</td>
-    <td>Three papers at ICML 2026 workshops: an oral at the Philosophy of
+      models</a> accepted to the <span class="venue">NeurIPS 2026</span> main track.</span>
+      </li>
+      <li>
+        <span class="when">Sep 2026</span>
+        <span class="text">Promake's advertising product shipped, the second there that I have
+      architected and built.</span>
+      </li>
+      <li>
+        <span class="when">Jul 2026</span>
+        <span class="text">Three papers at ICML 2026 workshops: an oral at the Philosophy of
       Machine Learning Workshop and two at the Workshop on Mechanistic
-      Interpretability.</td>
-  </tr>
-  <tr>
-    <td>Jul 2026</td>
-    <td><a href="https://doi.org/10.3390/diagnostics16142262" rel="external noopener">Landmark
-      regression with attention U-Net for assessing breast positioning quality
-      in MLO mammography view</a> published in
-      <span class="venue">Diagnostics</span>.</td>
-  </tr>
-  <tr>
-    <td>Feb 2026</td>
-    <td><a href="https://promake.ai/" rel="external noopener">Promake</a>'s first
+      Interpretability.</span>
+      </li>
+      <li>
+        <span class="when">May 2026</span>
+        <span class="text">Promake joined the Google for Startups Accelerator.</span>
+      </li>
+      <li>
+        <span class="when">Feb 2026</span>
+        <span class="text"><a href="https://promake.ai/" rel="external noopener">Promake</a>'s first
       product launched, a website builder that gets a small business onto the
-      web.</td>
-  </tr>
-  <tr>
-    <td>Oct 2025</td>
-    <td>Joined Promake as founding AI engineer, with technical ownership of its
-      agent systems.</td>
-  </tr>
-  <tr>
-    <td>Apr 2025</td>
-    <td><a href="https://doi.org/10.1016/j.bspc.2024.107227" rel="external noopener">Interpretable
-      ECG analysis for myocardial infarction detection through counterfactuals</a>
-      published in <span class="venue">Biomedical Signal Processing and Control</span>.</td>
-  </tr>
-  <tr>
-    <td>Mar 2025</td>
-    <td>Hevi AI's radiology suite, including hBreastMMG, the mammography product I worked on, was CE marked under the MDR, the first from Turkiye.</td>
-  </tr>
-</table>
+      web.</span>
+      </li>
+    </ul>
+  </section>
 
-<!-- =================================================================
-     Publications
-     ================================================================= -->
-<h2 id="publications">Publications</h2>
-<p class="section-note">
-  <b data-scholar="citations">172</b> citations, h-index
-  <b data-scholar="hindex">7</b>, i10-index <b data-scholar="i10">6</b> on
-  <a href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ" rel="external noopener">Google Scholar</a>,
-  checked <span data-scholar="updated">30 September 2026</span>.
-  <br>
-  <span class="tag">&dagger;</span> first author,
-  <span class="tag">*</span> equal contribution,
-  <span class="tag">&#9671;</span> led by a student I mentored.
-</p>
+</main>
 
-<ol class="pubs">
-  <li>
-    <p class="pub-title"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">&#9671; Routing subspaces: auditing evaluation-to-deployment mismatch in fine-tuned language models</a></p>
-    <p class="authors"><a href="https://phomarkon.github.io/" rel="external noopener">P. M. Konrad</a>, <span class="me">T. Tanyel</span>, <a href="https://sayvaz-mmmi.github.io/" rel="external noopener">S. Ayvaz</a>. <span class="venue">Advances in Neural Information Processing Systems (NeurIPS)</span>, 2026.&nbsp;<span class="tag">main track</span></p>
-    <p class="links"><a href="https://arxiv.org/abs/2607.20436" rel="external noopener">arXiv</a></p>
-  </li>
-  <li>
-    <p class="pub-title"><a href="https://doi.org/10.1016/j.bspc.2024.107227" rel="external noopener">&dagger; Interpretable ECG analysis for myocardial infarction detection through counterfactuals</a></p>
-    <p class="authors"><span class="me">T. Tanyel</span>, S. Atmaca, K. Gokce, M. Y. Balik, A. Guler, E. Aslanger, <a href="https://sites.google.com/view/oksuzilkay" rel="external noopener">I. Oksuz</a>. <span class="venue">Biomedical Signal Processing and Control</span>, 2025.</p>
-    <p class="links"><a href="https://doi.org/10.1016/j.bspc.2024.107227" rel="external noopener">doi</a> <span class="sep">/</span> <a href="https://arxiv.org/abs/2312.08304" rel="external noopener">arXiv</a> <span class="sep">/</span> <a href="https://github.com/tanyelai/vcce" rel="external noopener">code</a></p>
-  </li>
-  <li>
-    <p class="pub-title">Self-reports do not identify self-models: an identifiability test for counterfactual reports</p>
-    <p class="authors"><a href="https://phomarkon.github.io/" rel="external noopener">P. M. Konrad</a>, <span class="me">T. Tanyel</span>, <a href="https://sayvaz-mmmi.github.io/" rel="external noopener">S. Ayvaz</a>. <span class="venue">Workshop on Philosophy of Machine Learning, ICML 2026</span>.&nbsp;<span class="tag">oral</span></p>
-    <p class="links"><a href="https://openreview.net/forum?id=iBq4yYwYfd" rel="external noopener">OpenReview</a></p>
-  </li>
-  <li>
-    <p class="pub-title"><a href="https://doi.org/10.3390/diagnostics16142262" rel="external noopener">* Landmark regression with attention U-Net for assessing breast positioning quality in MLO mammography view</a></p>
-    <p class="authors">N. Denizoglu*, <span class="me">T. Tanyel</span>*, E. C. Erkan, M. E. Seker, E. Meltem, et al. <span class="venue">Diagnostics</span>, 2026.</p>
-    <p class="links"><a href="https://doi.org/10.3390/diagnostics16142262" rel="external noopener">doi</a> <span class="sep">/</span> <a href="https://github.com/tanyelai/deep-breast-positioning" rel="external noopener">code</a></p>
-  </li>
-  <li>
-    <p class="pub-title"><a href="https://doi.org/10.1186/s13244-025-01922-w" rel="external noopener">* Annotation-efficient, patch-based, explainable deep learning using a curriculum method for breast cancer detection in screening mammography</a></p>
-    <p class="authors">O. Camurdan*, <span class="me">T. Tanyel</span>*, E. Aktufan Cerekci, D. Alis, E. Meltem, N. Denizoglu, et al. <span class="venue">Insights into Imaging</span>, 2025.</p>
-    <p class="links"><a href="https://doi.org/10.1186/s13244-025-01922-w" rel="external noopener">doi</a></p>
-  </li>
-  <li>
-    <p class="pub-title"><a href="https://doi.org/10.3390/cancers15164015" rel="external noopener">&dagger; Deciphering machine-learning decisions to distinguish between posterior fossa tumor types using MRI features</a></p>
-    <p class="authors"><span class="me">T. Tanyel</span>, C. Nadarajan, N. M. Duc, B. Keserci. <span class="venue">Cancers</span>, 2023.</p>
-    <p class="links"><a href="https://doi.org/10.3390/cancers15164015" rel="external noopener">doi</a> <span class="sep">/</span> <a href="https://github.com/tanyelai/save-the-kid" rel="external noopener">code</a></p>
-  </li>
-  <li>
-    <p class="pub-title"><a href="https://doi.org/10.1007/978-3-031-91379-2_10" rel="external noopener">&dagger; Evaluation of explainability methods in medical image analysis</a></p>
-    <p class="authors"><span class="me">T. Tanyel</span>, <a href="https://sites.google.com/view/oksuzilkay" rel="external noopener">I. Oksuz</a>. In <em>Explainable Machine Intelligence in Healthcare</em>, 2025.&nbsp;<span class="tag">book chapter</span></p>
-    <p class="links"><a href="https://doi.org/10.1007/978-3-031-91379-2_10" rel="external noopener">doi</a></p>
-  </li>
-</ol>
-
-<p class="pubs-more">Selected on venue, contribution and field; the complete
-  list is in <a href="/publications.pdf">this PDF</a>.</p>
-
-<!-- =================================================================
-     Awards
-     ================================================================= -->
-<h2 id="awards">Awards</h2>
-<table class="dated">
-  <tr>
-    <td>2025</td>
-    <td><span class="what">Visit grant</span>,
-      <span class="where">Danish Data Science Academy, for a research stay at the University of Southern Denmark</span></td>
-  </tr>
-  <tr>
-    <td>2025</td>
-    <td><span class="what">Runner-up, ECG Challenge</span>,
-      <span class="where">British Heart Foundation Data Science Centre</span></td>
-  </tr>
-  <tr>
-    <td>2024</td>
-    <td><span class="what">Third place, Artificial Intelligence in Healthcare competition</span>,
-      <span class="where">among roughly 5,000 teams</span></td>
-  </tr>
-  <tr>
-    <td>2023</td>
-    <td><span class="what">Research scholarship</span>,
-      <span class="where">TUSEB, Health Institutes of Turkiye, for the ECG work behind my M.Sc. thesis</span></td>
-  </tr>
-  <tr>
-    <td>2021</td>
-    <td><span class="what">Research scholarship</span>,
-      <span class="where">TUBITAK, the national research council of Turkiye, on
-      <a href="https://search.trdizin.gov.tr/tr/yayin/detay/1222288/yapay-ogrenmede-egitim-orneklerini-siralama-optimizasyonu" rel="external noopener">optimising the order of training examples</a></span></td>
-  </tr>
-  <tr>
-    <td>2021</td>
-    <td><span class="what">Third place, autonomous rover competition</span>,
-      <span class="where">Teknofest</span></td>
-  </tr>
-</table>
-
-<!-- =================================================================
-     Mentoring and teaching
-     ================================================================= -->
-<h2 id="mentoring">Mentoring and teaching</h2>
-<table class="dated">
-  <tr>
-    <td>since 2024</td>
-    <td><span class="what">Research mentoring</span>,
-      <span class="where">University of Southern Denmark. P. Mark Konrad, an undergraduate
-      when we started and now beginning an MSc at T&uuml;bingen; his work on mechanistic
-      interpretability and verification became three ICML 2026 workshop papers</span></td>
-  </tr>
-  <tr>
-    <td>since 2022</td>
-    <td><span class="what">Student mentoring</span>,
-      <span class="where">Y&#305;ld&#305;z Technical University. Salih Emre Karaka&#351;, who interned at Promake and now works there part time in his final year, three other undergraduates in computer science and biomedical engineering, and project groups building AI for healthcare</span></td>
-  </tr>
-  <tr>
-    <td>2022 to 2023</td>
-    <td><span class="what">Peer advisor</span>,
-      <span class="where">Y&#305;ld&#305;z Technical University. An appointed position in the
-      computer engineering department, as the person students were directed to for academic
-      guidance</span></td>
-  </tr>
-  <tr>
-    <td>2022</td>
-    <td><span class="what">Guest lecture, Deep Learning for NLP</span>,
-      <span class="where">in Introduction to Natural Language Processing (BLM4580),
-      Y&#305;ld&#305;z Technical University</span></td>
-  </tr>
-</table>
-
-
-<footer class="foot">
-  <span>Toygar Tanyel</span>
-  <span class="credit">Page layout adapted from
-    <a href="https://jonbarron.info/" rel="external noopener">jonbarron.info</a>
-    (<a href="https://github.com/jonbarron/jonbarron.github.io" rel="external noopener">template</a>).</span>
+<footer class="site-foot">
+  <div class="col site-foot-inner">
+    <span><a href="/">Toygar Tanyel</a></span>
+    <span class="contact-row">
+      <a class="icon-link" href="mailto:contact.toygar@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></a>
+      <a class="icon-link" href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ" rel="external noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="icon" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
+      <a class="icon-link" href="https://github.com/tanyelai" rel="external noopener" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></a>
+      <a class="icon-link" href="https://linkedin.com/in/toygar-tanyel" rel="external noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+    </span>
+  </div>
 </footer>
 
-<nav class="side-nav" aria-label="Section navigation">
-  <ul>
-    <li><a href="#news" data-target="news"><span class="dot" aria-hidden="true"></span><span class="label">News</span></a></li>
-    <li><a href="#publications" data-target="publications"><span class="dot" aria-hidden="true"></span><span class="label">Publications</span></a></li>
-    <li><a href="#awards" data-target="awards"><span class="dot" aria-hidden="true"></span><span class="label">Awards</span></a></li>
-    <li><a href="#mentoring" data-target="mentoring"><span class="dot" aria-hidden="true"></span><span class="label">Mentoring</span></a></li>
-  </ul>
-</nav>
-
-<script src="/assets/site.js?v=4" defer></script>
-
+<script src="/assets/site.js?v=11" defer></script>
 <script data-goatcounter="https://tanyelai.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
 

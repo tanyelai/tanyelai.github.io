@@ -15,36 +15,45 @@
 <link rel="icon" href="/assets/favicon.png?v=4" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=11">
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
 
+<header class="site-head">
+  <div class="col site-head-inner">
+    <a class="site-name" href="/">Toygar Tanyel</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/research">Research</a>
+      <a href="/publications">Publications</a>
+      <a href="/path">Path</a>
+      <a href="/notes/" aria-current="page">Notes</a>
+      <a href="/cv.pdf">CV</a>
+    </nav>
+    <span class="nav-tools">
+      <button class="toggle lang-toggle" type="button" aria-label="Yazıları Türkçe oku">
+        <span class="to-tr">TR</span><span class="to-en">EN</span>
+      </button>
+      <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
+        <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
+        </svg>
+        <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.1"></circle>
+          <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
+        </svg>
+      </button>
+    </span>
+  </div>
+</header>
+
 <main class="page page--narrow">
   <article class="article">
-    <nav class="nav" style="margin-top:0" aria-label="Breadcrumb">
-      <a href="/">&larr; toygar tanyel</a>
-      <a href="/notes/">notes</a>
-      <span class="nav-tools">
-        <button class="toggle lang-toggle" type="button" aria-label="Yazıları Türkçe oku">
-          <span class="to-tr">TR</span><span class="to-en">EN</span>
-        </button>
-        <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
-          <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
-          </svg>
-          <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="4.1"></circle>
-            <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
-          </svg>
-        </button>
-      </span>
-    </nav>
 
-    <p class="note-date" style="margin-top:2.5rem">
+    <p class="note-date">
       <span data-lang="en">3 January 2026</span><span data-lang="tr">3 Ocak 2026</span>
     </p>
     <h1 class="article-title">
@@ -138,7 +147,7 @@
   </footer>
 </main>
 
-<script src="/assets/site.js?v=4" defer></script>
+<script src="/assets/site.js?v=11" defer></script>
 
 </body>
 </html>

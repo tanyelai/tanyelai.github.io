@@ -4,58 +4,69 @@ Personal site. Plain HTML and one stylesheet, served by GitHub Pages. No build
 step: edit the file, push, done.
 
 ```
-index.html            the front page: news, publications, awards
-research.html         the four questions, with their figures
+index.html            the front page: who, the bio, the latest news
+research.html         the research map, then the papers grouped by area
+publications.html     every paper, newest first, filterable; links the PDF
+path.html             study, research and industry in lanes; news; mentoring and teaching
 cv.pdf                the CV: education, positions, the full record
-publications.pdf      the complete publication list
-notes/                short pieces, each in English and Turkish; linked from the
-                      hero, not listed on the front page
+publications.pdf      the complete publication list as a document
+notes/                short pieces, each in English and Turkish
 assets/style.css      the whole design system
-assets/site.js        theme toggle, language toggle, figures that wait to be seen
-assets/favicon.svg
+assets/site.js        toggles, the map's lines and previews, the publication filters
 assets/og.png         social card, regenerated from scripts/og.html
-scripts/              Scholar refresher (see below)
+scripts/              Scholar refresher, social card source, local preview server
 data/scholar.json     last verified citation figures
 ```
 
 ## Design
 
-The layout follows the academic-homepage convention that descends from
-[jonbarron.github.io](https://github.com/jonbarron/jonbarron.github.io): an
-800px measure, [Lato](https://fonts.google.com/specimen/Lato) at 15px,
-`#1772d0` links turning `#f09228` on hover, and date-left / one-line-right
-tables for everything that is a list of dated facts.
+**One calm column.** The front page says who this is, in the bio, and what is
+new, in five news lines, and stops. Everything else is one click away in the
+header: Research, Publications, Path, Notes, CV. The bio is never shortened.
 
-The convention is the point. A reader in the field knows where to look without
-being taught, and the sections arrive in the order they are looked for: who and
-where, then what is recent, then the publications, then everything else. So the
-order of information is not a preference here and should not be rearranged
-casually.
+**The research map** is the one real figure on the site. One rule groups the
+papers, on the map and in the headings under it: a paper's area is what its
+models work on, *Language* or *Medicine*, with a grey *Other work* for the two
+projects outside both. Topics are the methods and ideas the papers use, read
+from the full texts, and a topic is there only if it groups something: one that
+links the same papers as another goes. Three topics are used in both areas and
+sit where their outlines overlap: *Counterfactuals*, *Evaluation* (whether a
+measure or an explanation shows what it claims) and *Data augmentation*. Every
+paper sits inside its own area and nowhere else.
 
-**Bold only.** Italics are reserved for the two places the field actually uses
-them, a book title and a thesis title. Emphasis everywhere else is bold.
+The outlines are drawn by `site.js` from the rendered boxes: each area is a soft
+field around its own topics, its own papers and the topics it shares, pushed
+back by everything that is not its own, so no other area's paper falls inside
+it, nothing of another area reshapes it, and two areas overlap only around a
+topic they share. Each line bows the way its paper's `data-bends` says, chosen
+so that no line passes under a topic it does not join. The map scales to the
+height of the screen, so it is seen in one look. Hovering a paper lights its
+lines and topics and previews it; hovering a topic lights its papers; clicking a
+paper opens it in the full list. The dashed *Causal abstraction* pill names the
+current direction as a field and says nothing about the work. Below the map,
+each area has a heading, one sentence, its papers, and its longer notes folded.
 
-**One table shape.** News, awards, positions and teaching all use
-`table.dated`, because they are all the same kind of fact: a date and a line.
-The reader learns the shape once. Its first column is fixed at 112px and
-wrapping, not `nowrap`. A long range like *Sep 2023 - Jan 2025* under `nowrap`
-stretches the column and knocks every other section out of alignment with it.
+**Publications is the full list**, all papers newest first, filterable by
+type, with the PDF a button away. The Scholar figures live here.
 
-**The portrait floats.** A grid column leaves a tall empty cell beside three
-paragraphs of prose; a float lets the paragraphs close back over the full
-measure once they clear the photo. That is why the photo comes first in source
-order, which also gives the mobile stack the right order with no reordering
-rule.
+**Path has three lanes on one time axis**, newest at the top, because study,
+research and industry ran side by side and a single list hides that. Every
+block is a role and a place with its years, nothing more; ongoing ones are
+orange. Under it, the news back to 2020, in one list. News is activity:
+positions, launches, awards, schools. A paper appears there only when it is
+top tier (NeurIPS, ICML); every other paper lives on the publications page,
+where listing them belongs. Each line is short, with its month where the month
+is known and only the year where it is not. Mentoring and teaching are roles,
+not events, so they keep their own list.
 
-**Three departures from the convention.** A dark theme, because the toggle
-predates the redesign; it is the same two hues lifted until they hold contrast
-on a dark ground, not a second design. The four hand-drawn diagrams in
-*Research*, which sit in the same shape a Barron page gives a paper thumbnail,
-small square left and text right. And orange as the mark inside those diagrams,
-for whatever carries the decision: the hub in a connectivity graph, the shortest
-path across a decision boundary, the saliency peak beside the region a
-radiologist marked, the channel everything funnels through. The figures draw
-when scrolled into view.
+**Type and colour.** [Newsreader](https://fonts.google.com/specimen/Newsreader)
+for names, headings and the notes; [Inter](https://fonts.google.com/specimen/Inter)
+for everything else. Orange is the mark for whatever carries the decision,
+never a link colour: links are ink, underlined, and turn orange only on hover.
+No medical figure appears anywhere, and no decorative one.
+
+**What is private stays off.** Fields are named at the top level only. Work that
+is not public yet gets no description, no question and no section.
 
 Two toggles sit at the top right. **Light is the default**: dark is a choice,
 not a system default. **English is the default**; the notes carry their Turkish
@@ -63,73 +74,67 @@ originals alongside the translations and `TR` swaps them. Both choices are kept
 in `localStorage` and applied by an inline script in each `<head>` before first
 paint, so the page never flashes the wrong one.
 
+**No build step**, so the header, icon sprite and footer are written out in
+each HTML file. When the header changes, change it in all eight.
+
 ## Editing
 
-**The CV PDF.** `cv.pdf` in the repo root, linked from two places in the hero:
-the `seealso` line and the link row. Keep the filename `cv.pdf` when replacing
-it, dated build names such as `TT_PhD_Academic_260903.pdf` rot every link that
-points at them. The stylesheet still carries a `.pending` rule for an unlinked
-placeholder; use it if a link ever has to name a document that is not up yet
-rather than pointing at nowhere.
+**The CV PDF.** `cv.pdf` in the repo root, linked from the header of every page.
+Keep the filename `cv.pdf` when replacing it; dated build names such as
+`TT_CV_260903.pdf` rot every link that points at them.
 
-**A news item.** Add a `<tr>` at the top of `table.dated` under `News`. Use a
-month only when you know it; a bare year is honest and reads fine next to one.
-Keep it to a sentence.
+**A news item.** Add an `<li>` to the news on `path.html`, newest first, with
+the date in `.when` (`Sep 2026`, or `2026` when only the year is known) and one
+short sentence in `.text`. A paper earns a news line only at a top-tier venue.
+If the item is one of the five newest, add it at the top of the news on
+`index.html` as well and drop the last one there.
 
-**A new paper.** The front page carries five, not the whole record, and the
-complete list lives in `publications.pdf`. So a new paper means updating that
-PDF; it only joins the page if it displaces one of the five.
+**A new paper** goes in three places, and `publications.pdf` as well.
 
-The six are chosen on venue, contribution and field. Currently four journal
-articles, an ICML workshop oral, and a book chapter.
+1. `publications.html`: an `<li class="pub" id="p-NAME" data-type="TYPE">` under
+   its year, newest first. `TYPE` is `conf`, `journal`, `chapter` or `preprint`;
+   update the counts on the filter buttons. The entry is `.pub-title` (with the
+   †, * or ◇ mark), `.pub-authors` (the site owner's name in `<span class="me">`),
+   and `.pub-meta` with the venue in `<span class="venue">`, the year, an orange
+   `.tag` for *oral*, *main track*, *book chapter* or *abstract*, and the links
+   that exist.
+2. `research.html`, the list under its area's heading: one `<li>` linking to
+   `/publications#p-NAME`.
+3. `research.html`, the map: one `<a class="ls-node ls-paper ls-paper--AREA">`
+   with `href="/publications#p-NAME"`, `data-id`, `data-area` (`lang`, `med` or
+   `other`, the same as the class), `data-topics` (space-separated topic ids),
+   `data-bends` (one bow per topic, `0.1`, `-0.1` or `0`), `data-title`,
+   `data-meta`, and its position as `left` and `top` percentages. Put it beside
+   its topics on its own area's side, well clear of the shared topics (the other
+   area's outline wraps them), with its label running into its own area: add
+   `ls-left` for a label on the left. `site.js` draws its lines and redraws
+   every outline around it; there is nothing else to draw. Then look: the paper
+   must sit inside its own outline only, and no line may pass under a topic it
+   does not join (flip that line's bow if one does). A topic has `data-home`
+   (its area), or, when both areas use it, `data-regions="lang med"`.
 
-Three rules worth keeping. Prefer the journal version over the workshop version
-of the same project; the breast-positioning work appears once for that reason,
-as the Diagnostics article rather than the MICCAI workshop paper, even though
-MICCAI is the better-known venue. Do not spend two slots on one line of work.
-And keep at least one entry that says which research community this is aimed
-at, even where he is not first author: the target is a CS PhD, four medical imaging
-and biosignal journals on their own read as a medical imaging researcher, and the ICML oral on
-mechanistic interpretability is the entry that fixes that. It sits second rather
-than last for the same reason, so the first two entries carry both the
-first-author record and the current field.
-
-An entry is three paragraphs: `.pub-title`, then `.authors` (his own name
-wrapped in `<span class="me">`, venue in `<span class="venue">`, year), then
-`.links`. Bind a `.tag` to the year before it with `&nbsp;` so a lone *oral*
-cannot be stranded on a line of its own. Link `doi`, `arXiv` and `code` where
-they exist; drop the ones that don't rather than pointing at a search page.
 No quartile tags: a quartile depends on the index and the year, and in JCR 2025
-two of the four journals here were Q2, so the tag said less than it seemed to.
+two of the journals here were Q2, so the tag said less than it seemed to.
+
+**A new stop on the path.** A `.block` in the `.lanes` grid in `path.html`, in
+column 2 (study), 3 (research) or 4 (industry). Its rows are counted in months
+down from the top, which is October 2026: the grid row of month *m* of year *y*
+is `(2026 * 12 + 10) - (12 * y + m) + 2`. A block runs from the row of its last
+month to one past the row of its first. Ongoing blocks start at row 2 and carry
+the class `now`. When the top needs to move forward, add the months to
+`--months` and shift every row by the same amount.
 
 **Numbers that grow.** Do not put a live head count on the page. It was
 "roughly 60,000 people" for about a week before it was 63,000, and a figure the
-reader can tell is stale costs more than no figure at all. Rounding up to a
-number you have not reached yet is worse. Bands that stay true for a long time
-work ("tens of thousands", "several hundred paying businesses"), and a date
-never rots at all, which is why the Promake entry leans on February 2026 rather
-than on a total. Fixed historical counts are fine as they are: the 400,000
-mammograms and the 60,000 labelled will not change. The CV is the place for a
-dated snapshot; the site is standing text.
-
-**What does not go on the front page.** Education and employment history. No
-page in this lineage carries them: jonbarron, phomarkon and Yuhui Zhang all put
-the degrees and the career into the opening paragraph and leave the record to
-the CV. Measured before the cut, those two sections were 31% of the page and
-duplicated `cv.pdf` outright. The front page is 992 words now against 1937,
-which sits beside phomarkon at 1125 and Yuhui Zhang at 1255; jonbarron and
-Owens run to 5000 and 7000, but that is a hundred publications with a
-description each, not prose about themselves.
-
-The test to apply before adding anything: does it help a reader decide, in
-thirty seconds, what this person is? If it is proof rather than identity, it
-belongs in the CV.
+reader can tell is stale costs more than no figure at all. Bands that stay true
+for a long time work ("tens of thousands"), and a date never rots. Paper counts
+are fine because they change only when a paper is added, and then they are
+updated with it.
 
 **A new note.** Copy any file in `notes/` and replace the title, date and body.
 Every piece of text that differs by language lives in a pair of elements marked
 `data-lang="en"` and `data-lang="tr"`; keep both halves or the toggle will show
-a gap. Then add it to `notes/index.html`. The front page does not list notes;
-it links to `/notes/` from the hero and that is the only place to keep in step.
+a gap. Then add it to `notes/index.html`.
 
 Careful with that attribute: the toggle sets `data-lang` on `<html>`, so the CSS
 rules that hide the inactive language are descendant selectors. A bare
@@ -137,37 +142,25 @@ rules that hide the inactive language are descendant selectors. A bare
 whole page.
 
 **Colour or type.** Everything is a custom property at the top of
-`assets/style.css`: `:root` for light, `:root[data-theme="dark"]` for dark.
-Change a value once and every figure, tag and link follows.
+`assets/style.css`: `:root` for light, `:root[data-theme="dark"]` for dark,
+including the three map regions. `--accent-ink` is the orange used as text; it
+is darker than `--accent` so it holds 4.5:1 on paper.
 
-**Bump `?v=` when the CSS changes structurally.** Every page loads
+**Bump `?v=` when the CSS or JS changes structurally.** Every page loads
 `/assets/style.css?v=N` and `/assets/site.js?v=N`. GitHub Pages serves assets
 with `Cache-Control: max-age=600`, so for ten minutes after a deploy a returning
-visitor can be handed the old stylesheet. A recolour survives that; a rename or
-removal of class names does not, and the page renders as unstyled HTML until the
-cache expires. So when class names change, bump `N` in all five HTML files at
-once and the old copy can no longer be served. A tweak to values inside existing
-rules needs no bump.
+visitor can be handed the old files. When class names change, bump `N` in all
+eight HTML files at once.
 
-**The favicon.** `assets/favicon.svg` is a TT monogram drawn as four
-rectangles rather than `<text>`, so no font has to resolve, on a solid blue
-ground that holds against light and dark browser chrome alike. At a 16px tab
-only two or three strokes survive, which rules out any of the page's diagrams.
-Favicons are cached harder than anything else, so it carries the same `?v=`
-query as the other assets.
-
-**The social card.** `scripts/og.html` is a 1200×630 page; screenshot it at that
-size and save the result as `assets/og.png`. Its ECG is the same idea as the
-research figures one context over: the recording in grey, and the counterfactual
-beat, ST elevation off the J point with a fuller T, marked in orange. The two
-paths must agree at the clip edges or a seam shows.
+**The social card.** `scripts/og.html` is a 1200×630 page: the name, the fields
+and the affiliation. Screenshot it at that size and save it as `assets/og.png`.
 
 ## Scholar figures
 
 `scripts/update_scholar.py` reads the citation, h-index and i10-index totals off
 the public Scholar profile, writes them to `data/scholar.json`, and rewrites the
-`data-scholar` spans in `index.html`. A daily GitHub Action runs it and commits
-any change.
+`data-scholar` spans in `publications.html`. A daily GitHub Action runs it and
+commits any change.
 
 Scholar has no API and rate-limits datacentre IPs, so runs will fail sometimes.
 That is handled rather than fought: on a blocked fetch, or on numbers that look
@@ -188,13 +181,14 @@ python3 scripts/update_scholar.py
 ## Local preview
 
 ```sh
-python3 -m http.server 8000
+python3 scripts/serve.py
 ```
 
-Then open <http://localhost:8000>. Use a server rather than opening the file
-directly; the site uses root-absolute paths. Extensionless links such as
-`/notes/following-distance` 404 under `http.server` but resolve on GitHub Pages;
-add `.html` when checking one locally.
+Then open <http://localhost:8000>. It is the plain Python file server plus the
+one rule GitHub Pages applies: `/research` serves `research.html`. Without it,
+every extensionless link (`/research`, `/path`, `/notes/following-distance`)
+404s locally while working fine on the live site. Use a server rather than
+opening the file directly; the site uses root-absolute paths.
 
 One URL did not survive the redesign: `/cv` used to serve `cv.html`, and the CV
 is now `/cv.pdf`. GitHub Pages cannot redirect without a plugin, so an old

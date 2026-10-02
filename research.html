@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research · Toygar Tanyel</title>
-<meta name="description" content="Toygar Tanyel on brain science and the philosophy of knowing, interaction, counterfactual explanation, and how explanations are evaluated.">
+<meta name="description" content="Toygar Tanyel on interpretability and self-report in language models, counterfactual explanation, and how explanations are evaluated.">
 <meta name="author" content="Toygar Tanyel">
 <link rel="canonical" href="https://tanyelai.github.io/research">
 <meta property="og:title" content="Research · Toygar Tanyel">
-<meta property="og:description" content="Topics I have worked on and still enjoy learning about.">
+<meta property="og:description" content="What the papers are about, and how they connect.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://tanyelai.github.io/research">
 <meta property="og:image" content="https://tanyelai.github.io/assets/og.png">
@@ -18,64 +18,129 @@
 <link rel="icon" href="/assets/favicon.png?v=4" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css?v=11">
 <script>try{var d=document.documentElement,t=localStorage.getItem("theme"),l=localStorage.getItem("lang");if(t)d.setAttribute("data-theme",t);if(l)d.setAttribute("data-lang",l)}catch(e){}</script>
 </head>
 <body>
 
-<nav class="nav" aria-label="Breadcrumb">
-  <a href="/">&larr; toygar tanyel</a>
-  <span class="nav-tools">
-    <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
-      <svg class="moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
-      </svg>
-      <svg class="sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.1"></circle>
-        <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
-      </svg>
-    </button>
-  </span>
-</nav>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M2.5 9.5 12 4.5l9.5 5-9.5 5z"/><path d="M6.5 11.8v4.4c0 1.4 2.5 2.8 5.5 2.8s5.5-1.4 5.5-2.8v-4.4"/><path d="M21.5 9.5v5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8 10.5V17"/><circle cx="8" cy="7.3" r="0.7" fill="currentColor"/><path d="M12 17v-6.5"/><path d="M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9V17"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.8 6.6 12 13l8.2-6.4"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12"/><path d="m6 11 6 6 6-6"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></symbol>
+  <symbol id="i-paper" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/></symbol>
+  <symbol id="i-ship" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5"/><path d="M12 12v9"/></symbol>
+  <symbol id="i-work" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></symbol>
+  <symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><path d="M9 15.2 7.5 21l4.5-2.2 4.5 2.2-1.5-5.8"/><path d="m9.6 10 1.7 1.7 3.2-3.4"/></symbol>
+</svg>
 
-<h1 class="article-title">Research</h1>
-<p class="section-note">Topics I have worked on and still enjoy learning about.</p>
-<ul class="questions">
-  <li>How much of what we perceive arrives, and how much do we supply?</li>
-  <li>Does thinking need language, or does it only go better with it?</li>
-  <li>What is the difference between understanding something and being able to use it?</li>
-  <li>What is it to explain something?</li>
-  <li>Would an explanation with nobody to receive it still be one?</li>
-</ul>
-<hr class="masthead-rule">
+<header class="site-head">
+  <div class="col site-head-inner">
+    <a class="site-name" href="/">Toygar Tanyel</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/research" aria-current="page">Research</a>
+      <a href="/publications">Publications</a>
+      <a href="/path">Path</a>
+      <a href="/notes/">Notes</a>
+      <a href="/cv.pdf">CV</a>
+    </nav>
+    <span class="nav-tools">
+      <button class="toggle theme-toggle" type="button" aria-label="Switch to the dark theme">
+        <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.8 13.6A8.6 8.6 0 1 1 10.4 3.2a6.7 6.7 0 0 0 10.4 10.4z"></path>
+        </svg>
+        <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.1"></circle>
+          <path d="M12 2.2v2.1M12 19.7v2.1M4.5 4.5l1.5 1.5M18 18l1.5 1.5M2.2 12h2.1M19.7 12h2.1M4.5 19.5L6 18M18 6l1.5-1.5"></path>
+        </svg>
+      </button>
+    </span>
+  </div>
+</header>
 
-<div class="research-item">
-  <figure class="fig">
-    <svg viewBox="-4 -4 128 128" role="img"
-         aria-label="A small network of nodes and edges with one hub node and the connections into it marked.">
-      <path class="fig-soft fig-draw" pathLength="1"
-            d="M60 16 L98 36 L104 80 L72 108 L34 106 L14 72 L20 32 L60 16 M86 60 L98 36 M86 60 L104 80 M86 60 L72 108 M36 62 L14 72 M36 62 L34 106"></path>
-      <g class="fig-dot fig-mid">
-        <circle cx="60" cy="16" r="2.4"></circle><circle cx="98" cy="36" r="2.4"></circle>
-        <circle cx="104" cy="80" r="2.4"></circle><circle cx="72" cy="108" r="2.4"></circle>
-        <circle cx="34" cy="106" r="2.4"></circle><circle cx="14" cy="72" r="2.4"></circle>
-        <circle cx="20" cy="32" r="2.4"></circle><circle cx="86" cy="60" r="2.4"></circle>
-        <circle cx="36" cy="62" r="2.4"></circle>
-      </g>
-      <g class="fig-late">
-        <path class="fig-mark-line"
-              d="M60 60 L60 16 M60 60 L104 80 M60 60 L34 106 M60 60 L20 32 M60 60 L86 60 M60 60 L36 62"></path>
-        <circle class="fig-mark-dot" cx="60" cy="60" r="4.4"></circle>
-      </g>
-    </svg>
-    <figcaption class="fig-caption">connectivity</figcaption>
-  </figure>
-  <div>
-    <h3>Brain science, and the philosophy of knowing</h3>
-    <p>I read brain science for its own sake, mostly perception and learning,
+<main>
+<div class="col page-top">
+  <h1 class="page-title">Research</h1>
+  <p class="page-lede">Eighteen papers, by what the models work on: language or medicine, and two other projects. The current work is on language models; the medical work is past research. Every paper is in the <a href="/publications">full list</a>.</p>
+</div>
+
+<figure class="landscape wide" aria-label="A map of the papers by area and topic">
+  <div class="ls-scroll">
+    <div class="ls-canvas">
+      <svg viewBox="0 0 1000 600" aria-hidden="true" focusable="false">
+      </svg>
+      <span class="ls-area ls-area--lang" data-region="lang" data-anchor="top">Language</span>
+      <span class="ls-area ls-area--med" data-region="med" data-anchor="top">Medicine</span>
+      <span class="ls-area ls-area--other" data-region="other" data-anchor="right">Other work</span>
+      <span class="ls-node ls-topic ls-topic--lang" data-id="interp" style="left:20.50%;top:14.67%" data-home="lang">Interpretability</span>
+      <span class="ls-node ls-topic ls-topic--lang" data-id="framing" style="left:12.80%;top:23.67%" data-home="lang">Framing effects</span>
+      <span class="ls-node ls-topic ls-topic--lang" data-id="neuro" style="left:9.00%;top:33.33%" data-home="lang">Neuroscience</span>
+      <span class="ls-node ls-topic ls-topic--lang ls-topic--dir" data-id="ca" style="left:9.20%;top:43.67%" data-home="lang" title="Where the current work is heading">Causal abstraction</span>
+      <span class="ls-node ls-topic ls-topic--lang" data-id="selfrep" style="left:8.50%;top:53.67%" data-home="lang">Self-report</span>
+      <span class="ls-node ls-topic ls-topic--lang" data-id="phil" style="left:13.00%;top:63.33%" data-home="lang">Philosophy of AI</span>
+      <span class="ls-node ls-topic ls-topic--lang" data-id="bias" style="left:29.00%;top:68.00%" data-home="lang">Bias</span>
+      <span class="ls-node ls-topic ls-topic--hub" data-id="cfi" style="left:50.00%;top:33.33%" data-regions="lang med">Counterfactuals</span>
+      <span class="ls-node ls-topic ls-topic--hub" data-id="evalh" style="left:50.00%;top:40.83%" data-regions="lang med">Evaluation</span>
+      <span class="ls-node ls-topic ls-topic--hub" data-id="aug" style="left:50.00%;top:48.33%" data-regions="lang med">Data augmentation</span>
+      <span class="ls-node ls-topic ls-topic--med" data-id="featimp" style="left:72.00%;top:12.00%" data-home="med">Feature importance</span>
+      <span class="ls-node ls-topic ls-topic--med" data-id="clin" style="left:86.80%;top:25.00%" data-home="med">Clinicians</span>
+      <span class="ls-node ls-topic ls-topic--med" data-id="sal" style="left:86.00%;top:56.67%" data-home="med">Saliency maps</span>
+      <span class="ls-node ls-topic ls-topic--med" data-id="design" style="left:87.00%;top:43.67%" data-home="med">Interpretable by design</span>
+      <span class="ls-node ls-topic ls-topic--med" data-id="curric" style="left:69.00%;top:68.67%" data-home="med">Curriculum learning</span>
+      <span class="ls-node ls-topic ls-topic--med" data-id="transfer" style="left:70.00%;top:77.00%" data-home="med">Transfer learning</span>
+      <a class="ls-node ls-paper ls-paper--lang ls-left" href="/publications#p-decoded" data-id="decoded" data-area="lang" data-topics="interp framing cfi" data-bends="0.1 0.1 0.1" data-title="◇ Decoded but unused: instruction tuning routes moral framing into the judgment readout" data-meta="ICML workshop, 2026" aria-label="Decoded but unused: instruction tuning routes moral framing into the judgment readout, ICML workshop, 2026" style="left:44.00%;top:17.50%"><span class="ls-dot"></span><span class="ls-label">Decoded but unused</span></a>
+      <a class="ls-node ls-paper ls-paper--lang ls-left" href="/publications#p-routing" data-id="routing" data-area="lang" data-topics="interp framing cfi evalh" data-bends="0.1 0.1 0.1 0.1" data-title="◇ Routing subspaces: auditing evaluation-to-deployment mismatch in fine-tuned language models" data-meta="NeurIPS, 2026 · Main track" aria-label="Routing subspaces: auditing evaluation-to-deployment mismatch in fine-tuned language models, NeurIPS, 2026 · Main track" style="left:38.20%;top:29.67%"><span class="ls-dot"></span><span class="ls-label">Routing subspaces</span></a>
+      <a class="ls-node ls-paper ls-paper--lang ls-left" href="/publications#p-path-walked" data-id="path-walked" data-area="lang" data-topics="interp neuro phil" data-bends="0.1 0.1 0.1" data-title="◇ A path already walked: on inheriting network-neuroscience tools for mechanistic interpretability" data-meta="ICML workshop, 2026" aria-label="A path already walked: on inheriting network-neuroscience tools for mechanistic interpretability, ICML workshop, 2026" style="left:30.00%;top:35.83%"><span class="ls-dot"></span><span class="ls-label">A path already walked</span></a>
+      <a class="ls-node ls-paper ls-paper--lang ls-left" href="/publications#p-self-reports" data-id="self-reports" data-area="lang" data-topics="selfrep phil ca cfi evalh" data-bends="0.1 0.1 0.1 -0.1 0.1" data-title="◇ Self-reports do not identify self-models: an identifiability test for counterfactual reports" data-meta="ICML workshop, 2026 · Oral" aria-label="Self-reports do not identify self-models: an identifiability test for counterfactual reports, ICML workshop, 2026 · Oral" style="left:39.20%;top:43.67%"><span class="ls-dot"></span><span class="ls-label">Self-reports and self-models</span></a>
+      <a class="ls-node ls-paper ls-paper--lang ls-left" href="/publications#p-ling-patterns" data-id="ling-patterns" data-area="lang" data-topics="bias aug evalh" data-bends="0.1 0.1 -0.1" data-title="† Developing linguistic patterns to mitigate inherent human bias in offensive language detection" data-meta="Turk J Elec Eng &amp; Comp Sci, 2024" aria-label="Developing linguistic patterns to mitigate inherent human bias in offensive language detection, Turk J Elec Eng &amp; Comp Sci, 2024" style="left:38.00%;top:50.67%"><span class="ls-dot"></span><span class="ls-label">Bias in offensive language</span></a>
+      <a class="ls-node ls-paper ls-paper--lang ls-left" href="/publications#p-ling-aug" data-id="ling-aug" data-area="lang" data-topics="aug bias evalh" data-bends="0.1 0.1 -0.1" data-title="† Linguistic-based data augmentation approach for offensive language detection" data-meta="UBMK, 2022" aria-label="Linguistic-based data augmentation approach for offensive language detection, UBMK, 2022" style="left:32.20%;top:57.33%"><span class="ls-dot"></span><span class="ls-label">Linguistic augmentation</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-posterior-fossa" data-id="posterior-fossa" data-area="med" data-topics="featimp evalh" data-bends="0.1 -0.1" data-title="† Deciphering machine-learning decisions to distinguish between posterior fossa tumor types using MRI features" data-meta="Cancers, 2023" aria-label="Deciphering machine-learning decisions to distinguish between posterior fossa tumor types using MRI features, Cancers, 2023" style="left:62.60%;top:28.67%"><span class="ls-dot"></span><span class="ls-label">Posterior fossa MRI</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-ecg" data-id="ecg" data-area="med" data-topics="cfi featimp clin evalh" data-bends="0.1 0.1 0.1 -0.1" data-title="† Interpretable ECG analysis for myocardial infarction detection through counterfactuals" data-meta="BSPC, 2025" aria-label="Interpretable ECG analysis for myocardial infarction detection through counterfactuals, BSPC, 2025" style="left:66.50%;top:23.83%"><span class="ls-dot"></span><span class="ls-label">Counterfactual ECG</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-beyond-known-reality" data-id="beyond-known-reality" data-area="med" data-topics="cfi featimp aug" data-bends="0.1 0.1 -0.1" data-title="† Beyond known reality: exploiting counterfactual explanations for medical research" data-meta="arXiv, 2023" aria-label="Beyond known reality: exploiting counterfactual explanations for medical research, arXiv, 2023" style="left:61.20%;top:33.17%"><span class="ls-dot"></span><span class="ls-label">Beyond known reality</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-radiology" data-id="radiology" data-area="med" data-topics="clin evalh" data-bends="0.1 0.1" data-title="Choosing the right artificial intelligence solutions for your radiology department: key factors to consider" data-meta="DIR, 2024" aria-label="Choosing the right artificial intelligence solutions for your radiology department: key factors to consider, DIR, 2024" style="left:60.00%;top:37.33%"><span class="ls-dot"></span><span class="ls-label">Choosing radiology AI</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-chapter" data-id="chapter" data-area="med" data-topics="sal evalh clin" data-bends="0.1 0.1 0.1" data-title="† Evaluation of explainability methods in medical image analysis" data-meta="Book chapter, 2025 · Book chapter" aria-label="Evaluation of explainability methods in medical image analysis, Book chapter, 2025 · Book chapter" style="left:60.80%;top:41.50%"><span class="ls-dot"></span><span class="ls-label">Evaluating explainability</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-saliency" data-id="saliency" data-area="med" data-topics="sal evalh" data-bends="0.1 0.1" data-title="Quantitative evaluation of saliency-based explainable AI (XAI) methods in deep-learning-based mammogram analysis" data-meta="EJR, 2024" aria-label="Quantitative evaluation of saliency-based explainable AI (XAI) methods in deep-learning-based mammogram analysis, EJR, 2024" style="left:60.80%;top:46.67%"><span class="ls-dot"></span><span class="ls-label">Saliency evaluation</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-curriculum" data-id="curriculum" data-area="med" data-topics="curric sal" data-bends="0.1 0.1" data-title="* Annotation-efficient, patch-based, explainable deep learning using a curriculum method for breast cancer detection in screening mammography" data-meta="Insights into Imaging, 2025" aria-label="Annotation-efficient, patch-based, explainable deep learning using a curriculum method for breast cancer detection in screening mammography, Insights into Imaging, 2025" style="left:60.40%;top:58.00%"><span class="ls-dot"></span><span class="ls-label">Annotation-efficient curriculum</span></a>
+      <a class="ls-node ls-paper ls-paper--med ls-left" href="/publications#p-landmark" data-id="landmark" data-area="med" data-topics="design clin" data-bends="0.1 0.1" data-title="* Landmark regression with attention U-Net for assessing breast positioning quality in MLO mammography view" data-meta="Diagnostics, 2026" aria-label="Landmark regression with attention U-Net for assessing breast positioning quality in MLO mammography view, Diagnostics, 2026" style="left:93.50%;top:32.00%"><span class="ls-dot"></span><span class="ls-label">Landmark regression</span></a>
+      <a class="ls-node ls-paper ls-paper--med ls-left" href="/publications#p-positioning" data-id="positioning" data-area="med" data-topics="design clin" data-bends="0.1 0.1" data-title="† Mammographic breast positioning assessment via deep learning" data-meta="MICCAI workshop, 2024" aria-label="Mammographic breast positioning assessment via deep learning, MICCAI workshop, 2024" style="left:93.50%;top:37.00%"><span class="ls-dot"></span><span class="ls-label">Positioning assessment</span></a>
+      <a class="ls-node ls-paper ls-paper--med" href="/publications#p-hfpef" data-id="hfpef" data-area="med" data-topics="transfer sal" data-bends="-0.1 0.1" data-title="Transfer learning for echocardiographic detection of HFpEF: preliminary results of the TALE-HFpEF study" data-meta="EHJ-CVI, 2025 · Abstract" aria-label="Transfer learning for echocardiographic detection of HFpEF: preliminary results of the TALE-HFpEF study, EHJ-CVI, 2025 · Abstract" style="left:77.40%;top:70.67%"><span class="ls-dot"></span><span class="ls-label">HFpEF from echo</span></a>
+      <a class="ls-node ls-paper ls-paper--other" href="/publications#p-floods" data-id="floods" data-area="other" data-topics="" data-bends="" data-title="◇ Beyond major floods: deep learning for detecting shallow water inundation in agricultural areas" data-meta="Procedia CS, 2025" aria-label="Beyond major floods: deep learning for detecting shallow water inundation in agricultural areas, Procedia CS, 2025" style="left:14.00%;top:90.00%"><span class="ls-dot"></span><span class="ls-label">Shallow floods</span></a>
+      <a class="ls-node ls-paper ls-paper--other" href="/publications#p-efield" data-id="efield" data-area="other" data-topics="" data-bends="" data-title="† Estimation of two-dimensional electric field distribution through deep learning: preliminary study" data-meta="SIU, 2024" aria-label="Estimation of two-dimensional electric field distribution through deep learning: preliminary study, SIU, 2024" style="left:26.60%;top:90.00%"><span class="ls-dot"></span><span class="ls-label">Electric fields</span></a>
+      <div class="ls-card" aria-hidden="true"><p class="ls-card-title"></p><p class="ls-card-meta"></p></div>
+    </div>
+  </div>
+  <figcaption class="col">
+    <p class="ls-hint ls-hint--wide">Each paper sits in its area, by what its models work on. Topics where the areas overlap are methods both use. Hover a paper to see its topics, click to open it in the full list.</p>
+    <p class="ls-hint ls-hint--narrow">Scroll sideways for the whole map; tap a paper to open it.</p>
+  </figcaption>
+</figure>
+
+<div class="col">
+
+  <p class="era">Current</p>
+  <section class="group" id="language" aria-labelledby="language-title">
+    <h2 class="group-title" id="language-title">Language</h2>
+    <p class="group-lede">When we say a system knows something, rather than that it reliably does something, what are we claiming?</p>
+    <ol class="lines">
+      <li><a href="/publications#p-routing">&#9671; Routing subspaces: auditing evaluation-to-deployment mismatch in fine-tuned language models</a><span class="meta">NeurIPS, 2026<span class="tag">Main track</span></span></li>
+      <li><a href="/publications#p-self-reports">&#9671; Self-reports do not identify self-models: an identifiability test for counterfactual reports</a><span class="meta">ICML workshop, 2026<span class="tag">Oral</span></span></li>
+      <li><a href="/publications#p-decoded">&#9671; Decoded but unused: instruction tuning routes moral framing into the judgment readout</a><span class="meta">ICML workshop, 2026</span></li>
+      <li><a href="/publications#p-path-walked">&#9671; A path already walked: on inheriting network-neuroscience tools for mechanistic interpretability</a><span class="meta">ICML workshop, 2026</span></li>
+    </ol>
+    <p class="lines-label">Earlier, on offensive language detection</p>
+    <ol class="lines">
+      <li><a href="/publications#p-ling-patterns">&dagger; Developing linguistic patterns to mitigate inherent human bias in offensive language detection</a><span class="meta">Turk J Elec Eng &amp; Comp Sci, 2024</span></li>
+      <li><a href="/publications#p-ling-aug">&dagger; Linguistic-based data augmentation approach for offensive language detection</a><span class="meta">UBMK, 2022</span></li>
+    </ol>
+    <details class="more">
+      <summary>Brain science, and the philosophy of knowing <span class="label">a longer note</span></summary>
+      <div class="more-body"><p>I read brain science for its own sake, mostly perception and learning,
       and <a href="https://github.com/tanyelai/neuroscience" rel="external
       noopener">keep the notes in public</a>. One finding has never stopped
       bothering me. People give the reasons for their choices fluently, at
@@ -86,34 +151,11 @@
       account rather than reporting a mechanism, and the two can agree for a
       long time before they come apart. Behind all of it sits the question I
       actually like. When we say a system knows something, rather than that
-      it reliably does something, what are we claiming?</p>
-  </div>
-</div>
-<div class="research-item">
-  <figure class="fig">
-    <svg viewBox="-4 -4 128 128" role="img"
-         aria-label="Many lines converging from the left into one narrow channel, then fanning out again to the right, with the channel itself marked.">
-      <path class="fig-soft fig-draw" pathLength="1"
-            d="M8 12 L50 60 M8 30 L50 60 M8 48 L50 60 M8 72 L50 60 M8 92 L50 60 M8 112 L50 60 M70 60 L112 14 M70 60 L112 34 M70 60 L112 52 M70 60 L112 68 M70 60 L112 90 M70 60 L112 108"></path>
-      <g class="fig-dot fig-mid">
-        <circle cx="8" cy="12" r="2.1"></circle><circle cx="8" cy="30" r="2.1"></circle>
-        <circle cx="8" cy="48" r="2.1"></circle><circle cx="8" cy="72" r="2.1"></circle>
-        <circle cx="8" cy="92" r="2.1"></circle><circle cx="8" cy="112" r="2.1"></circle>
-        <circle cx="112" cy="14" r="2.1"></circle><circle cx="112" cy="34" r="2.1"></circle>
-        <circle cx="112" cy="52" r="2.1"></circle><circle cx="112" cy="68" r="2.1"></circle>
-        <circle cx="112" cy="90" r="2.1"></circle><circle cx="112" cy="108" r="2.1"></circle>
-      </g>
-      <g class="fig-late">
-        <path class="fig-mark-line" d="M50 60 L70 60"></path>
-        <circle class="fig-mark-hollow" cx="50" cy="60" r="3.6"></circle>
-        <circle class="fig-mark-dot" cx="70" cy="60" r="3.6"></circle>
-      </g>
-    </svg>
-    <figcaption class="fig-caption">narrow channel</figcaption>
-  </figure>
-  <div>
-    <h3>Interaction, where the bottleneck is us</h3>
-    <p>Capability is rarely what limits a system built for people. The limit
+      it reliably does something, what are we claiming?</p></div>
+    </details>
+    <details class="more">
+      <summary>Interaction, where the bottleneck is us <span class="label">a longer note</span></summary>
+      <div class="more-body"><p>Capability is rarely what limits a system built for people. The limit
       is the channel between them, and the channel is words. A request
       arrives as one sentence carrying a dozen unstated constraints, and
       what goes unsaid gets filled in from the training prior rather than
@@ -121,37 +163,29 @@
       between what is said and what is meant implicature, and most of the
       work in a real request lives in that distance. Change how a question
       is framed and the judgment moves with it. We are the narrow part. I
-      would rather work there than on another increment of capability.</p>
-  </div>
-</div>
-<div class="research-item">
-  <figure class="fig">
-    <svg viewBox="-4 -4 128 128" role="img"
-         aria-label="Two groups of points either side of a decision boundary, with the shortest path from one point across the boundary marked.">
-      <path class="fig-line fig-draw" pathLength="1" d="M0 92 C30 78, 60 74, 120 34"></path>
-      <g class="fig-dot fig-mid">
-        <circle cx="14" cy="102" r="2.1"></circle><circle cx="26" cy="92" r="2.1"></circle>
-        <circle cx="40" cy="86" r="2.1"></circle><circle cx="34" cy="110" r="2.1"></circle>
-        <circle cx="52" cy="100" r="2.1"></circle><circle cx="58" cy="114" r="2.1"></circle>
-        <circle cx="90" cy="80" r="2.1"></circle><circle cx="100" cy="64" r="2.1"></circle>
-        <circle cx="20" cy="116" r="2.1"></circle><circle cx="46" cy="96" r="2.1"></circle>
-        <circle cx="20" cy="60" r="2.1"></circle><circle cx="36" cy="50" r="2.1"></circle>
-        <circle cx="52" cy="42" r="2.1"></circle><circle cx="28" cy="36" r="2.1"></circle>
-        <circle cx="44" cy="26" r="2.1"></circle><circle cx="64" cy="32" r="2.1"></circle>
-        <circle cx="80" cy="22" r="2.1"></circle><circle cx="98" cy="28" r="2.1"></circle>
-        <circle cx="68" cy="14" r="2.1"></circle><circle cx="106" cy="16" r="2.1"></circle>
-      </g>
-      <g class="fig-late">
-        <path class="fig-mark-dash" d="M66 86 L86 44"></path>
-        <circle class="fig-mark-hollow" cx="66" cy="86" r="3.6"></circle>
-        <circle class="fig-mark-dot" cx="86" cy="44" r="3.6"></circle>
-      </g>
-    </svg>
-    <figcaption class="fig-caption">nearest crossing</figcaption>
-  </figure>
-  <div>
-    <h3>Counterfactual explanation</h3>
-    <p>What would have had to be different for the decision to go the other
+      would rather work there than on another increment of capability.</p></div>
+    </details>
+  </section>
+
+  <p class="era">Past research</p>
+  <section class="group" id="medicine" aria-labelledby="medicine-title">
+    <h2 class="group-title" id="medicine-title">Medicine</h2>
+    <p class="group-lede">Explaining what medical models decide, judging whether those explanations hold, and building models for mammography, brain MRI, the ECG and echocardiography.</p>
+    <ol class="lines">
+      <li><a href="/publications#p-landmark">* Landmark regression with attention U-Net for assessing breast positioning quality in MLO mammography view</a><span class="meta">Diagnostics, 2026</span></li>
+      <li><a href="/publications#p-ecg">&dagger; Interpretable ECG analysis for myocardial infarction detection through counterfactuals</a><span class="meta">BSPC, 2025</span></li>
+      <li><a href="/publications#p-curriculum">* Annotation-efficient, patch-based, explainable deep learning using a curriculum method for breast cancer detection in screening mammography</a><span class="meta">Insights into Imaging, 2025</span></li>
+      <li><a href="/publications#p-chapter">&dagger; Evaluation of explainability methods in medical image analysis</a><span class="meta">Book chapter, 2025</span></li>
+      <li><a href="/publications#p-hfpef">Transfer learning for echocardiographic detection of HFpEF: preliminary results of the TALE-HFpEF study</a><span class="meta">EHJ-CVI, 2025<span class="tag">Abstract</span></span></li>
+      <li><a href="/publications#p-positioning">&dagger; Mammographic breast positioning assessment via deep learning</a><span class="meta">MICCAI workshop, 2024</span></li>
+      <li><a href="/publications#p-saliency">Quantitative evaluation of saliency-based explainable AI (XAI) methods in deep-learning-based mammogram analysis</a><span class="meta">EJR, 2024</span></li>
+      <li><a href="/publications#p-radiology">Choosing the right artificial intelligence solutions for your radiology department: key factors to consider</a><span class="meta">DIR, 2024</span></li>
+      <li><a href="/publications#p-posterior-fossa">&dagger; Deciphering machine-learning decisions to distinguish between posterior fossa tumor types using MRI features</a><span class="meta">Cancers, 2023</span></li>
+      <li><a href="/publications#p-beyond-known-reality">&dagger; Beyond known reality: exploiting counterfactual explanations for medical research</a><span class="meta">arXiv, 2023</span></li>
+    </ol>
+    <details class="more">
+      <summary>Counterfactual explanation <span class="label">a longer note</span></summary>
+      <div class="more-body"><p>What would have had to be different for the decision to go the other
       way? Of all the ways to explain a decision, this is the one that made
       sense to me. There are many true things you can say about a model, and
       nothing in the model tells you which of them is the explanation. A
@@ -162,35 +196,11 @@
       of explanation as what would happen under intervention, and machine
       learning only took it up in the last decade. It is one method among
       several, and what recommends it is an argument rather than a
-      benchmark.</p>
-  </div>
-</div>
-<div class="research-item">
-  <figure class="fig">
-    <svg viewBox="-3 -3 126 150" role="img"
-         aria-label="A mediolateral oblique mammogram: the pectoral muscle in the upper posterior corner, the breast sweeping down to the nipple and back to the inframammary fold. A radiologist has boxed the lesion; the model's saliency map peaks somewhere else.">
-      <rect class="fig-hair" x="0.5" y="0.5" width="119" height="143"></rect>
-      <path class="fig-dense" d="M0 0 L58 0 L0 104 Z"></path>
-      <path class="fig-tissue"
-            d="M34 44 C58 47, 92 63, 108 92 C97 119, 58 135, 16 137 L0 138 L0 104 Z"></path>
-      <path class="fig-line fig-draw" pathLength="1"
-            d="M34 44 C58 47, 92 63, 108 92 C97 119, 58 135, 16 137 L0 138"></path>
-      <path class="fig-soft fig-mid" d="M108 92 L114 92"></path>
-      <rect class="fig-box fig-mid" x="50" y="64" width="23" height="21"></rect>
-      <g class="fig-late">
-        <g class="fig-iso">
-          <ellipse cx="74" cy="106" rx="14"  ry="10.5" stroke-width="1"   opacity="0.32"></ellipse>
-          <ellipse cx="74" cy="106" rx="9.5" ry="7.1"  stroke-width="1.1" opacity="0.58"></ellipse>
-          <ellipse cx="74" cy="106" rx="5"   ry="3.8"  stroke-width="1.2" opacity="0.88"></ellipse>
-        </g>
-        <circle class="fig-mark-dot" cx="74" cy="106" r="2.6"></circle>
-      </g>
-    </svg>
-    <figcaption class="fig-caption">pointing game</figcaption>
-  </figure>
-  <div>
-    <h3>Evaluating explanations, the harder half</h3>
-    <p>Producing an explanation is the easy part. Judging whether it was any
+      benchmark.</p></div>
+    </details>
+    <details class="more">
+      <summary>Evaluating explanations, the harder half <span class="label">a longer note</span></summary>
+      <div class="more-body"><p>Producing an explanation is the easy part. Judging whether it was any
       good has no floor under it. People want one before they can say what
       would satisfy them, and to score one you would need to know what the
       right explanation was, which is what you did not have. So the field
@@ -208,16 +218,46 @@
       case falls short it falls short on means. If the methods improve they
       should move toward human explanation rather than away from it, because
       what an explanation has to satisfy is a person. That is also why
-      nothing gets regulated that cannot first be explained.</p>
-  </div>
-</div>
+      nothing gets regulated that cannot first be explained.</p></div>
+    </details>
+  </section>
+  <section class="group" id="other" aria-labelledby="other-title">
+    <h2 class="group-title" id="other-title">Other work</h2>
+    <p class="group-lede">Two applied projects outside both areas: flood mapping from satellite radar, and a network that stands in for an electromagnetic field solver.</p>
+    <ol class="lines">
+      <li><a href="/publications#p-floods">&#9671; Beyond major floods: deep learning for detecting shallow water inundation in agricultural areas</a><span class="meta">Procedia CS, 2025</span></li>
+      <li><a href="/publications#p-efield">&dagger; Estimation of two-dimensional electric field distribution through deep learning: preliminary study</a><span class="meta">SIU, 2024</span></li>
+    </ol>
 
-<footer class="foot">
-  <span><a href="/">Toygar Tanyel</a></span>
-  <span><a href="/cv.pdf">cv</a> &middot; <a href="/publications.pdf">publications</a></span>
+  </section>
+
+  <section class="section" id="questions" aria-labelledby="questions-title">
+    <h2 class="h2" id="questions-title">Open questions</h2>
+    <ol class="questions">
+      <li>How much of what we perceive arrives, and how much do we supply?</li>
+      <li>Does thinking need language, or does it only go better with it?</li>
+      <li>What is the difference between understanding something and being able to use it?</li>
+      <li>What is it to explain something?</li>
+      <li>Would an explanation with nobody to receive it still be one?</li>
+    </ol>
+  </section>
+
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="col site-foot-inner">
+    <span><a href="/">Toygar Tanyel</a></span>
+    <span class="contact-row">
+      <a class="icon-link" href="mailto:contact.toygar@gmail.com" aria-label="Email" title="Email"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></a>
+      <a class="icon-link" href="https://scholar.google.com/citations?user=Nj5PIzcAAAAJ" rel="external noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="icon" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
+      <a class="icon-link" href="https://github.com/tanyelai" rel="external noopener" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></a>
+      <a class="icon-link" href="https://linkedin.com/in/toygar-tanyel" rel="external noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+    </span>
+  </div>
 </footer>
 
-<script src="/assets/site.js?v=4" defer></script>
+<script src="/assets/site.js?v=11" defer></script>
 
 </body>
 </html>
