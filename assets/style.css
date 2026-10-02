@@ -346,7 +346,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-bottom: 1px solid var(--rule);
 }
 
-.fields .kicker span + span::before {
+.fields .kicker { display: flex; flex-wrap: wrap; row-gap: 6px; }
+.fields .kicker span { white-space: nowrap; }
+
+.fields .kicker span:not(:last-child)::after {
   content: "\00b7";
   padding: 0 10px;
   color: var(--ink-4);
@@ -698,7 +701,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .more[open] summary::before { transform: translateY(2px) rotate(225deg); }
 .more summary:hover { color: var(--accent-ink); }
-.more summary .label { color: var(--ink-3); font-weight: 400; }
+.more summary .label { color: var(--ink-3); font-weight: 400; white-space: nowrap; }
 
 .more-body { padding: 0 0 18px; }
 
@@ -1063,12 +1066,25 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 }
 
+/* ---------- touch ----------
+   Fingers need about 32px or more to hit something; the padding grows the
+   hit area and the negative margin keeps the layout where it was. */
+
+@media (pointer: coarse) {
+  .toggle { padding: 10px; margin: -6px; }
+  .icon-link { padding: 8px; margin: -8px; }
+  .site-foot a:not(.icon-link), .foot a { display: inline-block; padding: 8px 0; margin: -8px 0; }
+  .dated-more { padding-bottom: 10px; }
+  .pub-meta a { padding: 6px 0; }
+}
+
 /* ---------- narrow ---------- */
 
 @media (max-width: 760px) {
   .site-head { position: static; }
-  .site-head-inner { flex-wrap: wrap; gap: 4px 18px; padding-top: 12px; padding-bottom: 10px; }
+  .site-head-inner { flex-wrap: wrap; gap: 0 18px; padding-top: 12px; padding-bottom: 0; }
   .site-nav { order: 3; width: 100%; margin: 0; gap: 18px; overflow-x: auto; }
+  .site-nav a { padding: 10px 0; }
   .nav-tools { margin-left: auto; }
   html { scroll-padding-top: 16px; }
 
@@ -1082,7 +1098,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .dated-more { padding-left: 0; }
 
   .ls-hint--wide { display: none; }
-  .ls-hint--narrow { display: block; }
+  .ls-hint--narrow { display: block; margin: 0 0 12px; }
+  .landscape { display: flex; flex-direction: column; }
+  .landscape figcaption { order: -1; padding: 0; }
 
   .two-col { grid-template-columns: minmax(0, 1fr); gap: 40px; }
 
@@ -1100,6 +1118,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 @media (max-width: 520px) {
   .article-body p { font-size: 18.5px; }
   .questions li { font-size: 17.5px; }
+}
+
+/* The smallest phones: the five nav links share the row instead of
+   pushing CV out of sight, and the lane blocks give their text more room
+   (long words carry soft hyphens in path.html). */
+@media (max-width: 400px) {
+  .site-nav { gap: 0; justify-content: space-between; }
+  .block { padding: 5px 4px 5px 6px; }
+}
+
+@media (max-width: 340px) {
+  .block .nw { white-space: normal; }
+  .block-role { font-size: 11.5px; }
 }
 
 /* The notes pages use the reading column under their older name. */
