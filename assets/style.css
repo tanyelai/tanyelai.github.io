@@ -421,7 +421,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    paper lights its lines and topics and previews it; clicking opens
    it in the full list. */
 
-.landscape { margin: 40px 0 0; }
+.landscape { margin: 40px auto 0; }
 
 .ls-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
 
