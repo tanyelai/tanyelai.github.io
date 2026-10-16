@@ -94,7 +94,8 @@ If the item is one of the five newest, add it at the top of the news on
 1. `publications.html`: an `<li class="pub" id="p-NAME" data-type="TYPE">` under
    its year, newest first. `TYPE` is `conf`, `journal`, `chapter` or `preprint`;
    update the counts on the filter buttons. The entry is `.pub-title` (with the
-   †, * or ◇ mark), `.pub-authors` (the site owner's name in `<span class="me">`),
+   †, * or ◇ mark), `.pub-authors` (the site owner's name in `<span class="me">`,
+   followed by "(project lead)" when the site owner led a paper the author order does not show),
    and `.pub-meta` with the venue in `<span class="venue">`, the year, an orange
    `.tag` for *oral*, *main track*, *book chapter* or *abstract*, and the links
    that exist.
