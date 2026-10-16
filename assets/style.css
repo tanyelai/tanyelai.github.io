@@ -858,14 +858,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .pub-authors a { text-decoration: none; }
 .pub-meta .venue { color: var(--ink-2); }
-.pub-meta .sep { color: var(--ink-4); padding: 0 5px; }
+.pub-meta .sep, .pub-authors .sep { color: var(--ink-4); padding: 0 5px; }
 
 /* The one convention that has to survive scanning: which of these
    names is his. */
 .me { font-weight: 600; color: var(--ink); }
 
 /* His part in a paper whose author order does not show it. */
-.pub-meta .role { margin-left: 6px; font-style: italic; white-space: nowrap; }
+.pub-authors .role { font-style: italic; white-space: nowrap; }
 
 .pub:target { animation: target 2.4s ease; }
 
