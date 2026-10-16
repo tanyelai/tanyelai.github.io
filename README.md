@@ -94,11 +94,12 @@ If the item is one of the five newest, add it at the top of the news on
 1. `publications.html`: an `<li class="pub" id="p-NAME" data-type="TYPE">` under
    its year, newest first. `TYPE` is `conf`, `journal`, `chapter` or `preprint`;
    update the counts on the filter buttons. The entry is `.pub-title` (with the
-   †, * or ◇ mark), `.pub-authors` (the site owner's name in `<span class="me">`,
-   followed by "(project lead)" when the site owner led a paper the author order does not show),
+   †, * or ◇ mark), `.pub-authors` (the site owner's name in `<span class="me">`),
    and `.pub-meta` with the venue in `<span class="venue">`, the year, an orange
    `.tag` for *oral*, *main track*, *book chapter* or *abstract*, and the links
-   that exist.
+   that exist. When the author order hides that the site owner led a paper, a grey
+   `<span class="role">` after the year says so ("I conceived and led this
+   project"); the author line itself stays exactly as published.
 2. `research.html`, the list under its area's heading: one `<li>` linking to
    `/publications#p-NAME`.
 3. `research.html`, the map: one `<a class="ls-node ls-paper ls-paper--AREA">`

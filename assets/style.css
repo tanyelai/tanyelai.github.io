@@ -864,6 +864,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
    names is his. */
 .me { font-weight: 600; color: var(--ink); }
 
+/* His part in a paper whose author order does not show it. */
+.pub-meta .role { margin-left: 6px; font-style: italic; white-space: nowrap; }
+
 .pub:target { animation: target 2.4s ease; }
 
 @keyframes target {
