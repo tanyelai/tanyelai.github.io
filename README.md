@@ -54,9 +54,11 @@ research and industry ran side by side and a single list hides that. Every
 block is a role and a place with its years, nothing more; ongoing ones are
 orange. Under it, the news back to 2020, in one list. News is activity:
 positions, launches, awards, schools. A paper appears there only when it is
-top tier (NeurIPS, ICML); every other paper lives on the publications page,
-where listing them belongs. Each line is short, with its month where the month
-is known and only the year where it is not. Mentoring and teaching are roles,
+top tier (NeurIPS, ICML), or when the site owner picks it out, as with the
+first-author preprint *Whose effect is it?* and its public code; every other
+paper lives on the publications page, where listing them belongs. Each line is
+short, with its month where the month is known and only the year where it is
+not. Mentoring and teaching are roles,
 not events, so they keep their own list.
 
 **Type and colour.** [Newsreader](https://fonts.google.com/specimen/Newsreader)
@@ -85,7 +87,9 @@ Keep the filename `cv.pdf` when replacing it; dated build names such as
 
 **A news item.** Add an `<li>` to the news on `path.html`, newest first, with
 the date in `.when` (`Sep 2026`, or `2026` when only the year is known) and one
-short sentence in `.text`. A paper earns a news line only at a top-tier venue.
+short sentence in `.text`. A paper earns a news line only at a top-tier venue,
+or when the site owner asks for one. A journal a paper is only being prepared
+for is not named anywhere on the site until the paper has been submitted.
 If the item is one of the five newest, add it at the top of the news on
 `index.html` as well and drop the last one there.
 
