@@ -948,6 +948,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 
 .block.now { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, var(--paper)); }
 
+/* Two roles in one lane at the same time. For the months they share, the
+   later role narrows to the right half (share-top above, share-r beside)
+   and the earlier one takes the left half (share-l beside, share-bottom
+   below). Each keeps its text where it has the full width. */
+.block.share-top    { margin-bottom: 0; border-bottom-right-radius: 0; }
+.block.share-r      { margin: 0 0 2px calc(50% + 2px); border-top-left-radius: 0; border-top-right-radius: 0; }
+.block.share-l      { margin: 1px calc(50% + 2px) 0 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.block.share-bottom { margin-top: 0; border-top-left-radius: 0; }
+
 .block-role {
   display: block;
   font-size: 13.5px;

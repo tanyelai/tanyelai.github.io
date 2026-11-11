@@ -52,7 +52,11 @@ type, with the PDF a button away. The Scholar figures live here.
 **Path has three lanes on one time axis**, newest at the top, because study,
 research and industry ran side by side and a single list hides that. Every
 block is a role and a place with its years, nothing more; ongoing ones are
-orange. Under it, the news back to 2020, in one list. News is activity:
+orange. When two roles share a lane for some months, as the PIMI Lab and the
+visit to SDU do, they share its width for those months only: the later role
+narrows to the right half, the earlier to the left, and each keeps its text
+where it has the full width (`share-top`, `share-r`, `share-l` and
+`share-bottom` in `style.css`). Under it, the news back to 2020, in one list. News is activity:
 positions, launches, awards, schools. A paper appears there only when it is
 top tier (NeurIPS, ICML), or when the site owner picks it out, as with the
 first-author preprint *Whose effect is it?* and its public code; every other
