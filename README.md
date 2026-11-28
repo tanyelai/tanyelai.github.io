@@ -182,7 +182,10 @@ visitor can be handed the old files. When class names change, bump `N` in all
 eight HTML files at once.
 
 **The social card.** `scripts/og.html` is a 1200×630 page: the name, the fields
-and the affiliation. Screenshot it at that size and save it as `assets/og.png`.
+and the affiliation. Screenshot it at that size and save it as `assets/og.png`. Link previews
+cache the image by its address, so when the card changes, bump the `?v=` on
+`og:image` and `twitter:image` in all eight pages, or LinkedIn and X keep
+showing the old one.
 
 ## Scholar figures
 
