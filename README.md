@@ -76,11 +76,14 @@ exception is the prints beside the bio: small photos scattered in the
 margins like prints on a desk, each group under a small label. They follow
 the text downwards: Denmark beside the research paragraph (SDU on the left,
 a two-by-two grid of Sønderborg and Copenhagen on the right), then Istanbul beside the schools
-(Yıldız on the left, İTÜ on the right). Below 1280px each group becomes a
+(Yıldız Tech on the left, Istanbul Tech on the right). Below 1280px each group becomes a
 strip under its paragraph, and the SDU print and the Denmark grid share one
 row. They are
 places from the owner's own path, never stock images. A photo that is not the
 owner's is credited in the line above the footer and in its `title`.
+The label names the place and its years, in names a visitor from abroad
+knows ("Yıldız Tech", "Istanbul Tech"), and the caption names the moment
+without repeating the label ("Morning light", "Spring").
 
 **What is private stays off.** Fields are named at the top level only. Work that
 is not public yet gets no description, no question and no section.
