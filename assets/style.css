@@ -1208,6 +1208,33 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .print--tall { width: 158px; }
 }
 
+/* The Denmark pair sits beside the research paragraph. On narrow screens its
+   two sides share one strip. */
+@media (max-width: 1279px) {
+  .with-prints--pair { display: flex; flex-wrap: wrap; justify-content: center; }
+  .with-prints--pair > p { flex: 0 0 100%; }
+  .with-prints--pair .prints { margin: 14px 2px 22px; }
+  .with-prints--pair { align-items: flex-start; }
+  .with-prints--pair .prints--left  { flex: 0 0 36%; }
+  .with-prints--pair .prints--right { flex: 0 0 60%; }
+  .with-prints--pair .prints-label { white-space: normal; }
+  .with-prints--pair .print { width: min(104px, 23vw); }
+  .with-prints--pair .print--tall { width: min(96px, 22vw); padding-bottom: 38px; }
+}
+
+/* Each group of prints has a small label, like the tab on a folder. */
+.prints { flex-wrap: wrap; }
+.prints-label {
+  flex: 0 0 100%; margin: 0 0 8px; text-align: center; white-space: nowrap;
+  font: 500 10.5px/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+@media (min-width: 1280px) {
+  .prints-label { position: absolute; left: var(--x); top: var(--y); margin: 0; text-align: left; }
+  .prints-label::after { content: ""; display: inline-block; width: 28px; height: 1px;
+    margin-left: 9px; vertical-align: middle; background: var(--hairline); }
+}
+
 .photo-credits { margin: 0 auto 10px; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
 .photo-credits a { color: inherit; }
 

@@ -15,7 +15,7 @@ notes/                redirects from the old /notes/ addresses to /essays/
 assets/style.css      the whole design system
 assets/site.js        toggles, the map's lines and previews, the publication filters
 assets/og.png         social card, regenerated from scripts/og.html
-assets/photos/        campus prints beside the bio, 640px wide
+assets/photos/        the prints beside the bio, 640px wide
 scripts/              Scholar refresher, social card source, local preview server
 data/scholar.json     last verified citation figures
 ```
@@ -72,11 +72,14 @@ for names, headings and the essays; [Inter](https://fonts.google.com/specimen/In
 for everything else. Orange is the mark for whatever carries the decision,
 never a link colour: links are ink, underlined, and turn orange only on hover.
 No medical figure appears anywhere, and no decorative one. The one
-exception is the campus prints beside the bio: small photos of Yıldız and
-İTÜ, scattered in the margins like prints on a desk, Yıldız on the left and
-İTÜ on the right. Below 1280px they become a strip under the paragraph. They
-are places from the owner's own path, never stock images. A photo that is not
-the owner's is credited in the line above the footer and in its `title`.
+exception is the prints beside the bio: small photos scattered in the
+margins like prints on a desk, each group under a small label. They follow
+the text downwards: Denmark beside the research paragraph (SDU on the left,
+Sønderborg and Copenhagen on the right), then Istanbul beside the schools
+(Yıldız on the left, İTÜ on the right). Below 1280px each group becomes a
+strip under its paragraph, and the Denmark pair shares one row. They are
+places from the owner's own path, never stock images. A photo that is not the
+owner's is credited in the line above the footer and in its `title`.
 
 **What is private stays off.** Fields are named at the top level only. Work that
 is not public yet gets no description, no question and no section.
