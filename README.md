@@ -75,9 +75,10 @@ No medical figure appears anywhere, and no decorative one. The one
 exception is the prints beside the bio: small photos scattered in the
 margins like prints on a desk, each group under a small label. They follow
 the text downwards: Denmark beside the research paragraph (SDU on the left,
-Sønderborg and Copenhagen on the right), then Istanbul beside the schools
+a two-by-two grid of Sønderborg and Copenhagen on the right), then Istanbul beside the schools
 (Yıldız on the left, İTÜ on the right). Below 1280px each group becomes a
-strip under its paragraph, and the Denmark pair shares one row. They are
+strip under its paragraph, and the SDU print and the Denmark grid share one
+row. They are
 places from the owner's own path, never stock images. A photo that is not the
 owner's is credited in the line above the footer and in its `title`.
 

@@ -1235,6 +1235,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     margin-left: 9px; vertical-align: middle; background: var(--hairline); }
 }
 
+/* A group can be a small two-by-two grid instead of a scatter. */
+.print img { object-position: var(--pos, 50% 50%); }
+.prints--grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 4px; justify-items: center; }
+.prints--grid .prints-label { grid-column: 1 / -1; }
+.prints--grid .print { width: 100%; margin: 0; }
+@media (min-width: 1280px) {
+  .prints--grid { display: block; }
+  .prints--grid .print { width: 124px; padding: 5px 5px 21px; }
+  .prints--grid .print figcaption { font-size: 11px; bottom: 3px; }
+}
+
 .photo-credits { margin: 0 auto 10px; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
 .photo-credits a { color: inherit; }
 
