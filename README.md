@@ -10,7 +10,8 @@ publications.html     every paper, newest first, filterable; links the PDF
 path.html             study, research and industry in lanes; news; mentoring and teaching
 cv.pdf                the CV: education, positions, the full record
 publications.pdf      the complete publication list as a document
-notes/                short pieces, each in English and Turkish
+essays/               short essays, each in English and Turkish
+notes/                redirects from the old /notes/ addresses to /essays/
 assets/style.css      the whole design system
 assets/site.js        toggles, the map's lines and previews, the publication filters
 assets/og.png         social card, regenerated from scripts/og.html
@@ -22,7 +23,7 @@ data/scholar.json     last verified citation figures
 
 **One calm column.** The front page says who this is, in the bio, and what is
 new, in five news lines, and stops. Everything else is one click away in the
-header: Research, Publications, Path, Notes, CV. The bio is never shortened.
+header: Research, Publications, Path, Essays, CV. The bio is never shortened.
 
 **The research map** is the one real figure on the site. One rule groups the
 papers, on the map and in the headings under it: a paper's area is what its
@@ -66,7 +67,7 @@ not. Mentoring and teaching are roles,
 not events, so they keep their own list.
 
 **Type and colour.** [Newsreader](https://fonts.google.com/specimen/Newsreader)
-for names, headings and the notes; [Inter](https://fonts.google.com/specimen/Inter)
+for names, headings and the essays; [Inter](https://fonts.google.com/specimen/Inter)
 for everything else. Orange is the mark for whatever carries the decision,
 never a link colour: links are ink, underlined, and turn orange only on hover.
 No medical figure appears anywhere, and no decorative one.
@@ -75,7 +76,7 @@ No medical figure appears anywhere, and no decorative one.
 is not public yet gets no description, no question and no section.
 
 Two toggles sit at the top right. **Light is the default**: dark is a choice,
-not a system default. **English is the default**; the notes carry their Turkish
+not a system default. **English is the default**; the essays carry their Turkish
 originals alongside the translations and `TR` swaps them. Both choices are kept
 in `localStorage` and applied by an inline script in each `<head>` before first
 paint, so the page never flashes the wrong one.
@@ -141,10 +142,11 @@ for a long time work ("tens of thousands"), and a date never rots. Paper counts
 are fine because they change only when a paper is added, and then they are
 updated with it.
 
-**A new note.** Copy any file in `notes/` and replace the title, date and body.
+**A new essay.** Copy any file in `essays/` and replace the title, date and body.
 Every piece of text that differs by language lives in a pair of elements marked
 `data-lang="en"` and `data-lang="tr"`; keep both halves or the toggle will show
-a gap. Then add it to `notes/index.html`.
+a gap. Then add it to `essays/index.html` and `sitemap.xml`. Each essay
+starts from one reading and follows the owner's own thinking from it.
 
 Careful with that attribute: the toggle sets `data-lang` on `<html>`, so the CSS
 rules that hide the inactive language are descendant selectors. A bare
@@ -196,10 +198,15 @@ python3 scripts/serve.py
 
 Then open <http://localhost:8000>. It is the plain Python file server plus the
 one rule GitHub Pages applies: `/research` serves `research.html`. Without it,
-every extensionless link (`/research`, `/path`, `/notes/following-distance`)
+every extensionless link (`/research`, `/path`, `/essays/following-distance`)
 404s locally while working fine on the live site. Use a server rather than
 opening the file directly; the site uses root-absolute paths.
 
 One URL did not survive the redesign: `/cv` used to serve `cv.html`, and the CV
 is now `/cv.pdf`. GitHub Pages cannot redirect without a plugin, so an old
 bookmark to `/cv` 404s.
+
+The notes became essays on 28 November 2026, and `/notes/` became `/essays/`.
+The old addresses had been shared, so `notes/` keeps one small page per old
+URL that forwards to the new one with a meta refresh and is marked `noindex`.
+A new essay needs no such page.

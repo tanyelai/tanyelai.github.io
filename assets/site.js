@@ -48,7 +48,7 @@
   });
 
   wire(".lang-toggle", "data-lang", ["en", "tr"], function (to) {
-    return to === "tr" ? "Yazıları Türkçe oku" : "Read the notes in English";
+    return to === "tr" ? "Yazıları Türkçe oku" : "Read the essays in English";
   });
 
   /* The map's areas are drawn here from the rendered boxes. Each area is a

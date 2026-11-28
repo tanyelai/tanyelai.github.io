@@ -2,7 +2,7 @@
 """Local preview that resolves URLs the way GitHub Pages does.
 
 The site links to pages without their extension (/research, /path,
-/notes/following-distance). GitHub Pages serves research.html for
+/essays/following-distance). GitHub Pages serves research.html for
 /research; Python's plain http.server does not, so every such link 404s
 in a local preview. This adds that one rule and nothing else.
 
