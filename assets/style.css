@@ -1268,6 +1268,7 @@ html:has(.lightbox[open]) { overflow: hidden; }
 }
 .lightbox-print figcaption { margin-top: 10px; text-align: center; }
 .lightbox-caption { display: block; font: italic 16px/1.3 var(--serif); color: #4a4945; }
+.lightbox-credit a { color: inherit; }
 .lightbox-credit { display: block; margin-top: 3px; font: 11.5px/1.4 var(--sans); color: #7a7972; }
 .lightbox-close {
   position: absolute; top: -14px; right: -14px; width: 32px; height: 32px; border: 0;
@@ -1279,8 +1280,6 @@ html:has(.lightbox[open]) { overflow: hidden; }
 :root[data-theme="dark"] .lightbox-print, :root[data-theme="dark"] .lightbox-close { background: #e6e2d8; }
 @media (prefers-reduced-motion: reduce) { .lightbox-print { animation: none; } }
 
-.photo-credits { margin: 0 auto 10px; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
-.photo-credits a { color: inherit; }
 
 :root[data-theme="dark"] .print { background: #e6e2d8;
   box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 28px rgba(0,0,0,.5); }

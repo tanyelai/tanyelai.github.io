@@ -80,7 +80,8 @@ a two-by-two grid of Sønderborg and Copenhagen on the right), then Istanbul bes
 strip under its paragraph, and the SDU print and the Denmark grid share one
 row. They are
 places from the owner's own path, never stock images. A photo that is not the
-owner's is credited in the line above the footer and in its `title`.
+owner's is credited in its larger view, with a link to its source
+(`data-source`), and in its `title`.
 The label names the place and its years, in names a visitor from abroad
 knows ("Yıldız Tech", "Istanbul Tech"), and the caption names the moment
 without repeating the label ("Morning light", "Spring").

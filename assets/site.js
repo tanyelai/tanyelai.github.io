@@ -359,11 +359,24 @@
         big.src = this.getAttribute("href");
         big.alt = small.alt;
         caption.textContent = cap ? cap.textContent : "";
-        credit.textContent = figure.getAttribute("title") || "";
+        var who = figure.getAttribute("title") || "";
+        var from = figure.getAttribute("data-source");
+        credit.textContent = "";
+        if (who && from) {
+          var link = document.createElement("a");
+          link.href = from;
+          link.rel = "external noopener";
+          link.textContent = who;
+          credit.appendChild(link);
+        } else {
+          credit.textContent = who;
+        }
         box.showModal();
       });
     }
-    box.addEventListener("click", function () { box.close(); });
+    box.addEventListener("click", function (event) {
+      if (!event.target.closest("a")) box.close();
+    });
     box.addEventListener("close", function () { big.removeAttribute("src"); });
   }
 })();
