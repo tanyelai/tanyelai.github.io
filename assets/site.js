@@ -1,5 +1,5 @@
-/* Four small jobs: the theme toggle, the language toggle, the research map's
-   hover preview, and the publication filters.
+/* Five small jobs: the theme toggle, the language toggle, the research map's
+   hover preview, the publication filters, and the enlarged prints.
 
    Everything degrades: with no script the site is light, the notes are in
    English, every map dot is still a link to its paper, and the publication
@@ -329,5 +329,41 @@
     for (var f = 0; f < filters.length; f++) {
       filters[f].addEventListener("click", function () { show(this.getAttribute("data-type")); });
     }
+  }
+
+  /* The prints beside the bio open larger on click, in a native <dialog>:
+     Esc, a click anywhere or the close button shuts it. A modified click
+     (new tab) is left to the browser, and without script the link opens
+     the larger photo on its own. */
+  var opens = document.querySelectorAll(".print-open");
+  if (opens.length && typeof HTMLDialogElement === "function") {
+    var box = document.createElement("dialog");
+    box.className = "lightbox";
+    box.setAttribute("aria-label", "Photo");
+    box.innerHTML =
+      '<figure class="lightbox-print" tabindex="-1" autofocus><img alt="">' +
+      '<figcaption><span class="lightbox-caption"></span><span class="lightbox-credit"></span></figcaption>' +
+      '<button class="lightbox-close" type="button" aria-label="Close">\u00d7</button></figure>';
+    document.body.appendChild(box);
+    var big = box.querySelector("img");
+    var caption = box.querySelector(".lightbox-caption");
+    var credit = box.querySelector(".lightbox-credit");
+
+    for (var o = 0; o < opens.length; o++) {
+      opens[o].addEventListener("click", function (event) {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        var figure = this.closest("figure");
+        var small = this.querySelector("img");
+        var cap = figure.querySelector("figcaption");
+        big.src = this.getAttribute("href");
+        big.alt = small.alt;
+        caption.textContent = cap ? cap.textContent : "";
+        credit.textContent = figure.getAttribute("title") || "";
+        box.showModal();
+      });
+    }
+    box.addEventListener("click", function () { box.close(); });
+    box.addEventListener("close", function () { big.removeAttribute("src"); });
   }
 })();

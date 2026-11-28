@@ -1246,6 +1246,39 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .prints--grid .print figcaption { font-size: 11px; bottom: 3px; }
 }
 
+/* A print opens larger on click: the same print, straightened, over a soft
+   blur. Without script the link simply opens the larger photo. */
+.print-open { display: block; cursor: zoom-in; }
+.print-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.lightbox {
+  border: 0; padding: 0; margin: auto; background: transparent; overflow: visible;
+  max-width: min(92vw, 1100px); max-height: 92vh;
+}
+.lightbox::backdrop { background: rgba(20, 20, 19, 0.5); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+html:has(.lightbox[open]) { overflow: hidden; }
+.lightbox-print {
+  position: relative; margin: 0; padding: 12px 12px 14px; background: #fbfaf6;
+  box-shadow: 0 2px 6px rgba(0,0,0,.18), 0 30px 80px rgba(0,0,0,.35);
+  animation: lightbox-in .28s cubic-bezier(.2,.7,.2,1);
+}
+.lightbox-print:focus { outline: none; }
+.lightbox-print img {
+  display: block; width: auto; height: auto;
+  max-width: calc(min(92vw, 1100px) - 24px); max-height: calc(92vh - 96px);
+}
+.lightbox-print figcaption { margin-top: 10px; text-align: center; }
+.lightbox-caption { display: block; font: italic 16px/1.3 var(--serif); color: #4a4945; }
+.lightbox-credit { display: block; margin-top: 3px; font: 11.5px/1.4 var(--sans); color: #7a7972; }
+.lightbox-close {
+  position: absolute; top: -14px; right: -14px; width: 32px; height: 32px; border: 0;
+  border-radius: 50%; background: #fbfaf6; color: #3b3b38; font: 20px/32px var(--sans);
+  cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+@keyframes lightbox-in { from { opacity: 0; transform: scale(.96) rotate(-1deg); } }
+:root[data-theme="dark"] .lightbox::backdrop { background: rgba(0, 0, 0, 0.62); }
+:root[data-theme="dark"] .lightbox-print, :root[data-theme="dark"] .lightbox-close { background: #e6e2d8; }
+@media (prefers-reduced-motion: reduce) { .lightbox-print { animation: none; } }
+
 .photo-credits { margin: 0 auto 10px; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
 .photo-credits a { color: inherit; }
 

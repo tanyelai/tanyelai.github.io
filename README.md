@@ -84,6 +84,9 @@ owner's is credited in the line above the footer and in its `title`.
 The label names the place and its years, in names a visitor from abroad
 knows ("Yıldız Tech", "Istanbul Tech"), and the caption names the moment
 without repeating the label ("Morning light", "Spring").
+A click on a print opens it larger in a native `<dialog>` (Esc, a click
+anywhere or × closes it), from a 1400px copy in `assets/photos/large/` that
+loads only then. Without script the print is a plain link to that copy.
 
 **What is private stays off.** Fields are named at the top level only. Work that
 is not public yet gets no description, no question and no section.
