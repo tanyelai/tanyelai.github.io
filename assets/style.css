@@ -1167,3 +1167,51 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .ls-paper--other .ls-label { background: color-mix(in srgb, var(--ink-4) 6%, var(--paper)); }
 
 .lines-label { margin: 18px 0 6px; font-size: 13px; color: var(--ink-3); }
+
+
+/* ---------- campus prints beside the bio ----------
+   The places in the bio, as small prints scattered in the margins: Yıldız on
+   the left, İTÜ on the right. Below 1280px there is no margin, so they become
+   a strip under the paragraph, one per side. */
+.with-prints { position: relative; }
+.with-prints > p { margin-bottom: 1.05em; }
+.prints { display: flex; justify-content: center; align-items: center; margin: 14px 0 22px; }
+.print {
+  position: relative; flex: none; width: min(132px, 29vw); margin: 0 -8px;
+  padding: 6px 6px 24px; background: #fbfaf6;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 10px 24px rgba(0,0,0,.13);
+  transform: rotate(var(--r));
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+}
+.prints--left .print { width: min(104px, 23vw); }
+.print--tall { width: min(102px, 23vw); }
+.print img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+  filter: saturate(.8) contrast(.95) sepia(.14); transition: filter .35s; }
+.print--tall img { aspect-ratio: 3 / 4; }
+.print figcaption { position: absolute; left: 6px; right: 6px; bottom: 4px; text-align: center;
+  font: italic 12px/1.2 var(--serif); color: #6a6963;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 1279px) {
+  .print { padding-bottom: 30px; }
+  .print figcaption { white-space: normal; font-size: 10px; line-height: 1.15; }
+}
+.print:hover { transform: rotate(0deg) scale(1.08); z-index: 5;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 18px 40px rgba(0,0,0,.18); }
+.print:hover img { filter: none; }
+
+@media (min-width: 1280px) {
+  .prints { display: block; position: absolute; top: 0; width: 250px; height: 100%; margin: 0; }
+  .prints--left  { right: calc(100% + 40px); }
+  .prints--right { left: calc(100% + 40px); }
+  .print, .prints--left .print { display: block; position: absolute; left: var(--x); top: var(--y);
+    margin: 0; width: 186px; padding: 7px 7px 26px; }
+  .print--tall { width: 158px; }
+}
+
+.photo-credits { margin: 0 auto 10px; font-size: 12px; line-height: 1.6; color: var(--ink-3); }
+.photo-credits a { color: inherit; }
+
+:root[data-theme="dark"] .print { background: #e6e2d8;
+  box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 28px rgba(0,0,0,.5); }
+:root[data-theme="dark"] .print img { filter: saturate(.75) contrast(.95) sepia(.14) brightness(.9); }
+@media (prefers-reduced-motion: reduce) { .print, .print img { transition: none; } }
